@@ -9,6 +9,96 @@
 <html class="no-js" lang="en"> <!--<![endif]-->
 
 <head>
+    <style>
+        .toggle {
+            --width: 80px;
+            --height: calc(var(--width) / 3);
+
+            position: relative;
+            display: inline-block;
+            width: var(--width);
+            height: var(--height);
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: var(--height);
+            cursor: pointer;
+        }
+
+        .toggle input {
+            display: none;
+        }
+
+        .toggle .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--height);
+            background-color: #ccc;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .toggle .slider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(var(--height));
+            height: calc(var(--height));
+            border-radius: calc(var(--height) / 2);
+            background-color: #fff;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .toggle input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        .toggle input:checked+.slider::before {
+            transform: translateX(calc(var(--width) - var(--height)));
+        }
+
+        .toggle .labels {
+            position: absolute;
+            top: 6px;
+            left: 0;
+            width: 90%;
+            height: 100%;
+            font-size: 12px;
+            font-family: sans-serif;
+            font-weight: 200;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .toggle .labels::after {
+            content: attr(data-off);
+            position: absolute;
+            right: 5px;
+            color: #4d4d4d;
+            opacity: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .toggle .labels::before {
+            content: attr(data-on);
+            position: absolute;
+            left: 5px;
+            color: #ffffff;
+            opacity: 0;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .toggle input:checked~.labels::after {
+            opacity: 0;
+        }
+
+        .toggle input:checked~.labels::before {
+            opacity: 1;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>杏那＆Bartoszの結婚式!</title>
@@ -24,8 +114,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="ab.png">
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
-    <script src="node_modules/bootstrap/js/dist/buttons.js"> </script>
-    <script>$('.btn-group').button('toggle');</script>
     <script>
         // load css files from CDN if local node_modules fail
         function loadCssFromCDN(css) {
@@ -460,15 +548,20 @@
             <div class="col-md-12 col-sm-12">
                 <div class="form-input-group">
                     <i class="fa fa-user"></i><input name="name" class="" placeholder="お名前" required>
-                    <div class="btn-group btn-group-toggle detailsButton" data-toggle="buttons">
+                    <!-- <div class="btn-group btn-group-toggle detailsButton" data-toggle="buttons">
                         <label class="btn btn-secondary btn-small">
-                            <input type="radio" name="options" value="yes" autocomplete="off">
+                            <input type="radio" name="options" value="yes" autocomplete="off" >
                             参加
                         </label>
                         <label class="btn btn-secondary btn-small">
-                            <input type="radio" name="options" value="no" autocomplete="off"> 不参加
+                            <input type="radio" name="options" value="no" autocomplete="off" > 不参加
                         </label>
-                    </div>
+                    </div> -->
+                    <label class="toggle detailsButton">
+                        <input type="checkbox" onchange="toggleDetails(event)">
+                        <span class="slider"></span>
+                        <span class="labels" data-on="　参加" data-off="不参加"></span>
+                    </label>
                 </div>
             </div>
         </div>
@@ -519,7 +612,7 @@
 
             // Insert the cloned section into the document
             const detailsButton = clone.querySelector('.detailsButton');
-            detailsButton.addEventListener('click', toggleParticipate);
+            // detailsButton.addEventListener('click', toggleParticipate);
             if (name !== null && name.length > 0) {
                 input = clone.querySelector('input[name="name"]')
                 input.value = name;
@@ -528,18 +621,11 @@
             document.getElementById("people").appendChild(clone);
         }
 
-        function toggleParticipate(event) {
-            // console.log(event);
-            const button = event.currentTarget;
-            const value = event.currentTarget.querySelector('.active').children[0].value;
-
-            const person = button.closest('.person'); // Find the parent element with class 'person'
+        function toggleDetails(event) {
+            const checkbox = event.currentTarget;
+            const person = checkbox.closest('.person'); // Find the parent element with class 'person'
             const detailsInput = person.parentElement.querySelector('[name="participateDetails"]');
-
-            console.log(value);
-
-
-            if (value === "yes") {
+            if (checkbox.checked) {
                 detailsInput.style.display = 'block';
             } else {
                 detailsInput.style.display = 'none';
@@ -560,9 +646,6 @@
             }
         }
     </script>
-    
-    
-
 </body>
 
 </html>
