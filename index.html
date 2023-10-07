@@ -509,7 +509,7 @@
             <p>早めにご記入いただけると助かります！</p>
             <form id="rsvp-form" class="rsvp-form" action="" method="POST">
                 <div id="people">
-                    <div class="row" id="person1">
+                    <!-- <div class="row" id="person1">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
                                 <i class="fa fa-user"></i><input name="name1" class="" id="name1" placeholder="お名前"
@@ -522,7 +522,7 @@
                                     class="" placeholder="アレルギー・その他">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -555,11 +555,14 @@
             <div class="col-md-12 col-sm-12">
                 <div class="form-input-group">
                     <i class="fa fa-user"></i><input name="name" class="" placeholder="お名前" required>
-                    <label class="toggle detailsButton">
-                        <input type="checkbox" onchange="toggleDetails(event)">
-                        <span class="slider"></span>
-                        <span class="labels" data-on="　参加" data-off="不参加"></span>
-                    </label>
+                    <div class="btn-group detailsButton" role="group" aria-label="Basic example">
+                        <button type="button" name="on_btn" onclick="toggleDetails(event, true)" class="btn btn-secondary">参加</button>
+                        <button type="button" name="off_btn" onclick="toggleDetails(event, false)" class="btn btn-secondary">不参加</button>
+                      </div>
+                    <!-- <div class="detailsButton">
+                        <button type="button" class="btn btn-sm" onchange="toggleDetails(event)"> 参加 </button>
+                        <button type="button" class="btn btn-sm" onchange="toggleDetails(event)"> 不参加 </button>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -567,16 +570,17 @@
             <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                     <label for="textareaInput">アレルギー・その他</label>
-                    <textarea class="form-control auto-expand" name="allergies" id="textareaInput" rows="2" placeholder="Enter text"></textarea>
+                    <textarea class="form-control auto-expand" name="allergies" id="textareaInput" rows="2"
+                        placeholder="Enter text"></textarea>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
-                      ビーガン
+                        ビーガン
                     </label>
-                  </div>
+                </div>
             </div>
         </div>
     </div>
@@ -627,11 +631,19 @@
             document.getElementById("people").appendChild(clone);
         }
 
-        function toggleDetails(event) {
-            const checkbox = event.currentTarget;
-            const person = checkbox.closest('.person'); // Find the parent element with class 'person'
+        function toggleDetails(event, on) {
+            const button = event.currentTarget;
+            const person = button.closest('.person'); // Find the parent element with class 'person'
             const detailsInput = person.parentElement.querySelector('[name="participateDetails"]');
-
+            let other_btn
+            if (on) {
+                other_btn = button.parentElement.querySelector('[name="off_btn"]');
+            }
+            else {
+                other_btn = button.parentElement.querySelector('[name="on_btn"]');
+            }
+            button.style["background-color"] = "#e8ca6f"
+            other_btn.style["background-color"] = "#fff"
             // if (checkbox.checked) {
             //     detailsInput.style.height = 'auto'; // Set height to 'auto' to make it grow to its content
             //     detailsInput.style.opacity = 1;
@@ -642,7 +654,7 @@
             //     detailsInput.style.opacity = 0;
             //     detailsInput.classList.remove('transition-effect');
             // }
-            if (checkbox.checked) {
+            if (on) {
                 detailsInput.style.display = "block"
                 detailsInput.style.maxHeight = detailsInput.scrollHeight + 'px';
             } else {
@@ -650,21 +662,50 @@
             }
             detailsInput.classList.add('transition-effect');
         }
+        // function toggleDetails(event) {
+        //     const checkbox = event.currentTarget;
+        //     const person = checkbox.closest('.person'); // Find the parent element with class 'person'
+        //     const detailsInput = person.parentElement.querySelector('[name="participateDetails"]');
+
+        //     // if (checkbox.checked) {
+        //     //     detailsInput.style.height = 'auto'; // Set height to 'auto' to make it grow to its content
+        //     //     detailsInput.style.opacity = 1;
+        //     //     detailsInput.style.display = 'block'
+        //     //     detailsInput.classList.add('transition-effect');
+        //     // } else {
+        //     //     detailsInput.style.height = '0'; // Set height to 0 to make it shrink
+        //     //     detailsInput.style.opacity = 0;
+        //     //     detailsInput.classList.remove('transition-effect');
+        //     // }
+        //     if (checkbox.checked) {
+        //         detailsInput.style.display = "block"
+        //         detailsInput.style.maxHeight = detailsInput.scrollHeight + 'px';
+        //     } else {
+        //         detailsInput.style.maxHeight = '0';
+        //     }
+        //     detailsInput.classList.add('transition-effect');
+        // }
 
 
         // Get the 'name' parameter from the URL
-        var person1 = getParameterByName('name');
+        // var person1 = getParameterByName('name');
 
         // Check if the parameter exists and set it as the input field's value
-        if (person1 !== null) {
-            document.getElementById('name1').value = person1;
-            document.getElementById('name1').disabled = true;
-            for (var i = 2; i <= getParameterByName('n'); i++) {
+        // if (person1 !== null) {
+        //     document.getElementById('name1').value = person1;
+        //     document.getElementById('name1').disabled = true;
+            for (var i = 1; i <= getParameterByName('n'); i++) {
                 const personName = getParameterByName('name' + i);
                 addPerson(i, personName);
             }
-        }
+        // }
     </script>
 </body>
 
 </html>
+<!-- 
+<label class="toggle detailsButton">
+    <input type="checkbox" onchange="toggleDetails(event)">
+    <span class="slider"></span>
+    <span class="labels" data-on="　参加" data-off="不参加"></span>
+</label> -->
