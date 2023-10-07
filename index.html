@@ -98,6 +98,13 @@
         .toggle input:checked~.labels::before {
             opacity: 1;
         }
+
+        .transition-effect {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            /* Adjust the duration and easing as needed */
+        }
     </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -548,15 +555,6 @@
             <div class="col-md-12 col-sm-12">
                 <div class="form-input-group">
                     <i class="fa fa-user"></i><input name="name" class="" placeholder="お名前" required>
-                    <!-- <div class="btn-group btn-group-toggle detailsButton" data-toggle="buttons">
-                        <label class="btn btn-secondary btn-small">
-                            <input type="radio" name="options" value="yes" autocomplete="off" >
-                            参加
-                        </label>
-                        <label class="btn btn-secondary btn-small">
-                            <input type="radio" name="options" value="no" autocomplete="off" > 不参加
-                        </label>
-                    </div> -->
                     <label class="toggle detailsButton">
                         <input type="checkbox" onchange="toggleDetails(event)">
                         <span class="slider"></span>
@@ -565,12 +563,20 @@
                 </div>
             </div>
         </div>
-        <div class="row" name="participateDetails" style="display: none;">
-            <div class="col-md-6 col-sm-6" style="margin-left: 15px">
-                <div class="form-input-group">
-                    <i class="fa fa-envelope"></i>
-                    <input type="text" name="allergies" class="allergies form-control" placeholder="アレルギー・その他">
+        <div class="row" name="participateDetails" style="max-height: 0px; display: none;">
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                    <label for="textareaInput">アレルギー・その他</label>
+                    <textarea class="form-control auto-expand" name="allergies" id="textareaInput" rows="2" placeholder="Enter text"></textarea>
                 </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      ビーガン
+                    </label>
+                  </div>
             </div>
         </div>
     </div>
@@ -625,11 +631,24 @@
             const checkbox = event.currentTarget;
             const person = checkbox.closest('.person'); // Find the parent element with class 'person'
             const detailsInput = person.parentElement.querySelector('[name="participateDetails"]');
+
+            // if (checkbox.checked) {
+            //     detailsInput.style.height = 'auto'; // Set height to 'auto' to make it grow to its content
+            //     detailsInput.style.opacity = 1;
+            //     detailsInput.style.display = 'block'
+            //     detailsInput.classList.add('transition-effect');
+            // } else {
+            //     detailsInput.style.height = '0'; // Set height to 0 to make it shrink
+            //     detailsInput.style.opacity = 0;
+            //     detailsInput.classList.remove('transition-effect');
+            // }
             if (checkbox.checked) {
-                detailsInput.style.display = 'block';
+                detailsInput.style.display = "block"
+                detailsInput.style.maxHeight = detailsInput.scrollHeight + 'px';
             } else {
-                detailsInput.style.display = 'none';
+                detailsInput.style.maxHeight = '0';
             }
+            detailsInput.classList.add('transition-effect');
         }
 
 
