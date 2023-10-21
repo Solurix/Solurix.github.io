@@ -1073,6 +1073,33 @@ footer {
   }
 }
 
+.wedding-title {
+  font-size: 7vw; /* Responsive font size */
+  font-family: 'Cinzel Decorative', cursive; /* Custom font */
+  color: #FF69B4; /* Pink color */
+  font-weight: bold;
+}
+.couple-names {
+  font-size: 5vw; /* Responsive font size */
+  font-family: 'Cinzel Decorative', cursive; /* Custom font */
+  color: #000; /* Black color */
+}
+
+.countdown-container {
+  font-family: 'Cinzel Decorative', cursive; /* Custom font */
+  text-align: center;
+  padding: 20px;
+}
+.countdown-title {
+  font-size: 36px;
+  color: #FF69B4; /* Pink color */
+  font-weight: bold;
+}
+.countdown-timer {
+  font-size: 24px;
+  color: #000; /* Black color */
+}
+
 /* ==========================================================================
 Bootstrap override
 ========================================================================== */
