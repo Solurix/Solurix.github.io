@@ -10,7 +10,13 @@
 
 <head>
     <style>
-
+        .slider-image {
+            width: 50vw;
+            max-width: 800px;
+            max-height: 80%;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 56);
+        }
     </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -28,6 +34,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="ab.png">
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.3.11/slick.css" />
     <script>
         // load css files from CDN if local node_modules fail
         function loadCssFromCDN(css) {
@@ -66,11 +73,12 @@
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <style>
         body {
-    background-image: url('img/flower_bg.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed; /* Optional, for a fixed background effect */
-}
+            background-image: url('img/flower_bg.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            /* Optional, for a fixed background effect */
+        }
     </style>
 </head>
 
@@ -102,20 +110,20 @@
     </section>
 
     <section id="invitation" class="section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 text-center">
-                        <h1 class="wedding-title">Welcome to Our Wedding</h1>
-                        <h2 class="couple-names">Anna & Bartosz</h2>
-                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <h1 class="wedding-title">Welcome to Our Wedding</h1>
+                    <h2 class="couple-names">Anna & Bartosz</h2>
                 </div>
             </div>
-            <div id="timer">
-                <div id="days"></div>
-                <div id="hours"></div>
-                <div id="minutes"></div>
-                <div id="seconds"></div>
-            </div>
+        </div>
+        <div id="timer">
+            <div id="days"></div>
+            <div id="hours"></div>
+            <div id="minutes"></div>
+            <div id="seconds"></div>
+        </div>
     </section>
 
     <section id="intro">
@@ -139,82 +147,17 @@
                         敬具
                     </p>
                 </div>
-                <div class="col-md-3 hidden-sm hidden-xs"><img src="img/anna.png" class="wp2"></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/IMG_2317.jpg"
-                        class="wp8"></div>
-                <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/anna.png" class="wp9">
-                </div>
             </div>
         </div>
     </section>
-
-
-    <section id="eng-pics" class="section-padding">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h3 class="header">Pics</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <a class="fancybox" rel="group" href="img/insuit.jpg">
-                        <div class="img-wrap">
-                            <div class="overlay">
-                                <i class="fa fa-search"></i>
-                            </div>
-                            <img src="img/insuit.jpg" alt="" />
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="fancybox" rel="group" href="img/suit2.jpg">
-                        <div class="img-wrap">
-                            <div class="overlay">
-                                <i class="fa fa-search"></i>
-                            </div>
-                            <img src="img/suit2.jpg" alt="" />
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="fancybox" rel="group" href="img/okinawa.jpg">
-                        <div class="img-wrap">
-                            <div class="overlay">
-                                <i class="fa fa-search"></i>
-                            </div>
-                            <img src="img/okinawa.jpg" alt="" />
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row hidden-lg hidden-md hidden-xs">
-                <div class="col-xs-12 section-border section-padding"></div>
-            </div>
-        </div>
-        <!--<div class="row">
-        <div class="col-md-12">
-            <div class="diamond floating-logo">
-                <img src="img/sketch-ab.png" alt="Sketch Logo">
-                <div class="ring"></div>
-            </div>
-        </div>
-    </div>-->
-    </section>
-
-    <section id="video-bg" class="hidden-sm hidden-xs">
-        <div id="bgndVideo" class="player"
-            data-property="{videoURL:'https://youtu.be/1V24YPm31eE',containment:'#video-bg',autoPlay:true, mute:true, showControls:false, startAt:0, stopAt:11.5, opacity:1}">
-        </div>
-        <div id="video-content">
-            <h5>Kolkata</h5>
-            <p>City of joy</p>
+    <section>
+        <div class="pic-slider">
+            <div><img src="img/suit2.jpg" class="slider-image" /></div>
+            <div><img src="img/okinawa.jpg" class="slider-image" /></div>
+            <div><img src="img/insuit.jpg" class="slider-image" /></div>
         </div>
     </section>
+
 
     <section id="map" class="section-padding">
         <div class="text-center">
@@ -491,6 +434,47 @@
         }
 
         setInterval(function () { makeTimer(); }, 1000);
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.pic-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                centerMode: true,
+                adaptiveHeight: true,
+                mobileFirst: true,
+                //   centerPadding: '60px',
+                variableWidth: true,
+                initialSlide: 1,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: true,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+
+            });
+        });
     </script>
 </body>
 
