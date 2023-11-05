@@ -68,9 +68,9 @@ section .header {
   padding-bottom: 30px;
 }
 
-.section-padding {
-  padding: $section-padding;
-}
+// .section-padding {
+//   padding: $section-padding;
+// }
 
 .section-border {
   border-bottom: 1px solid $keyline-color;
@@ -354,22 +354,32 @@ Hero
     width: 80%;
     margin-top: 50%;
     margin-left: 21%;
-    animation: zoomIn 8s ease; /* Use a modified keyframe animation */
+    animation: zoomIn 8s ease;
+    /* Use a modified keyframe animation */
   }
-  
+
   @keyframes zoomIn {
-    0%, 10% {
+
+    0%,
+    10% {
       width: 10%;
     }
-    10%, 20% {
+
+    10%,
+    20% {
       width: 20%;
     }
-    20%, 30% {
+
+    20%,
+    30% {
       width: 30%;
     }
-    30%, 60% {
+
+    30%,
+    60% {
       width: 80%;
     }
+
     100% {
       width: 100%;
     }
@@ -973,40 +983,42 @@ RSVP form
         font-size: 14px;
       }
 
-/* Styles for the toggle button */
-.detailsButton {
-  position: absolute;
-  // top: 50%;
-  right: 10px; 
-  top: 10px; 
-  font-weight: 100;
-  // text-align: center;
-  // transform: translateY(-50%);
-  // width: 50px; /* Set the width to your desired size */
-  // height: auto; /* Remove fixed height to allow for smaller button */
-  // margin: 0;
-  // margin-right: -10px;
-  // padding: 5px; /* Adjust padding to your liking */
-  // font-size: 12px; /* Adjust the font size as needed */
-}
+      /* Styles for the toggle button */
+      .detailsButton {
+        position: absolute;
+        // top: 50%;
+        right: 10px;
+        top: 10px;
+        font-weight: 100;
+        // text-align: center;
+        // transform: translateY(-50%);
+        // width: 50px; /* Set the width to your desired size */
+        // height: auto; /* Remove fixed height to allow for smaller button */
+        // margin: 0;
+        // margin-right: -10px;
+        // padding: 5px; /* Adjust padding to your liking */
+        // font-size: 12px; /* Adjust the font size as needed */
+      }
 
-/* Ensure the radio options stay on the same line */
-.btn-group-toggle {
-  position: absolute;
-  // top: 50%;
-  // left:  px; /* Adjust the left offset as needed */
-  // transform: translateY(-50%);
-  display: inline-block;
-  vertical-align: middle;
-}
+      /* Ensure the radio options stay on the same line */
+      .btn-group-toggle {
+        position: absolute;
+        // top: 50%;
+        // left:  px; /* Adjust the left offset as needed */
+        // transform: translateY(-50%);
+        display: inline-block;
+        vertical-align: middle;
+      }
 
-/* Adjust radio button size */
-.btn-group-toggle label.btn {
-  padding: 10px;
-  margin-right: 5px; /* Add space between radio options */
-  font-size: 12px; /* Adjust the font size as needed */
-  // width: 25px; /* Set the width of each radio option */
-}
+      /* Adjust radio button size */
+      .btn-group-toggle label.btn {
+        padding: 10px;
+        margin-right: 5px;
+        /* Add space between radio options */
+        font-size: 12px;
+        /* Adjust the font size as needed */
+        // width: 25px; /* Set the width of each radio option */
+      }
 
       i.fa-user,
       i.fa-users,
@@ -1092,24 +1104,31 @@ footer {
 }
 
 .wedding-title {
-  font-size: max(7vw, 40px);
+  font-size: max(6vw, 40px);
   text-shadow: #FC0 1px 0 10px;
-  font-family: 'Cinzel Decorative', cursive; /* Custom font */
-  color: #FF69B4; /* Pink color */
+  font-family: 'Cinzel Decorative', cursive;
+  /* Custom font */
+  color: #FF69B4;
+  /* Pink color */
   font-weight: bold;
 }
+
 .couple-names {
-  font-size: max(5vw, 30px);
+  font-size: max(4vw, 25px);
   text-shadow: rgb(0, 0, 0) 1px 1px 10px;
   // font-size: 5vw; /* Responsive font size */
-  font-family: 'Cinzel Decorative', cursive; /* Custom font */
-  color: #ffffff; /* Black color */
+  font-family: 'Cinzel Decorative', cursive;
+  /* Custom font */
+  color: #ffffff;
+  /* Black color */
 }
 
 .divider-text {
   text-align: center;
-  font-size: 2rem; /* Adjust the font size as needed */
-  font-family: 'Cinzel Decorative', cursive; /* Custom font */
+  font-size: 2rem;
+  /* Adjust the font size as needed */
+  font-family: 'Cinzel Decorative', cursive;
+  /* Custom font */
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0;
@@ -1161,6 +1180,7 @@ Bootstrap override
   font-family: 'Covered By Your Grace', cursive;
   text-align: center;
   background: rgba(17, 17, 17, 0.5);
+
   // padding-bottom: 40px;
   // margin-left: 20px;
   // padding-top: 60px;
@@ -1170,18 +1190,22 @@ Bootstrap override
     font-size: 10vw;
     color: #db4844;
   }
+
   #hours {
     font-size: 8vw;
     color: #f07c22;
   }
+
   #minutes {
     font-size: 6vw;
     color: #f6da74;
   }
+
   #seconds {
     font-size: 4vw;
     color: #abcd58;
   }
+
   div {
     display: inline-block;
     line-height: 1;
@@ -1189,116 +1213,116 @@ Bootstrap override
     // margin: 15px;
     font-size: 4vw;
   }
-  
+
   span {
     display: block;
     font-size: 20px;
     color: white;
   }
-  
-  
-//   body {
-//     text-align: center;
-//     font-family: 'Covered By Your Grace', cursive;
-//   color: white;
-// }
+
+
+  //   body {
+  //     text-align: center;
+  //     font-family: 'Covered By Your Grace', cursive;
+  //   color: white;
+  // }
 }
 
 
 .toggle {
-	--width: 80px;
-	--height: calc(var(--width) / 3);
+  --width: 80px;
+  --height: calc(var(--width) / 3);
 
-	position: relative;
-	display: inline-block;
-	width: var(--width);
-	height: var(--height);
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-	border-radius: var(--height);
-	cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: var(--height);
+  cursor: pointer;
 }
 
 .toggle input {
-	display: none;
+  display: none;
 }
 
 .toggle .slider {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	border-radius: var(--height);
-	background-color: #ccc;
-	transition: all 0.4s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--height);
+  background-color: #ccc;
+  transition: all 0.4s ease-in-out;
 }
 
 .toggle .slider::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: calc(var(--height));
-	height: calc(var(--height));
-	border-radius: calc(var(--height) / 2);
-	background-color: #fff;
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-	transition: all 0.4s ease-in-out;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--height));
+  height: calc(var(--height));
+  border-radius: calc(var(--height) / 2);
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease-in-out;
 }
 
 .toggle input:checked+.slider {
-	background-color: #2196F3;
+  background-color: #2196F3;
 }
 
 .toggle input:checked+.slider::before {
-	transform: translateX(calc(var(--width) - var(--height)));
+  transform: translateX(calc(var(--width) - var(--height)));
 }
 
 .toggle .labels {
-	position: absolute;
-	top: 6px;
-	left: 0;
-	width: 90%;
-	height: 100%;
-	font-size: 12px;
-	font-family: sans-serif;
-	font-weight: 200;
-	transition: all 0.4s ease-in-out;
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 200;
+  transition: all 0.4s ease-in-out;
 }
 
 .toggle .labels::after {
-	content: attr(data-off);
-	position: absolute;
-	right: 5px;
-	color: #4d4d4d;
-	opacity: 1;
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-	transition: all 0.4s ease-in-out;
+  content: attr(data-off);
+  position: absolute;
+  right: 5px;
+  color: #4d4d4d;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease-in-out;
 }
 
 .toggle .labels::before {
-	content: attr(data-on);
-	position: absolute;
-	left: 5px;
-	color: #ffffff;
-	opacity: 0;
-	text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
-	transition: all 0.4s ease-in-out;
+  content: attr(data-on);
+  position: absolute;
+  left: 5px;
+  color: #ffffff;
+  opacity: 0;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+  transition: all 0.4s ease-in-out;
 }
 
 .toggle input:checked~.labels::after {
-	opacity: 0;
+  opacity: 0;
 }
 
 .toggle input:checked~.labels::before {
-	opacity: 1;
+  opacity: 1;
 }
 
 .transition-effect {
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height 0.3s ease-in-out;
-	/* Adjust the duration and easing as needed */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  /* Adjust the duration and easing as needed */
 }
 
 .fade-in-component {
@@ -1310,34 +1334,54 @@ Bootstrap override
   opacity: 1;
 }
 
-.divider {                /* minor cosmetics */
-  display: table; 
-  font-size: 24px; 
-  text-align: center; 
-  width: 75%;             /* divider width */
-  margin: 80px auto;          /* spacing above/below */
+.divider {
+  /* minor cosmetics */
+  display: table;
+  font-size: 24px;
+  text-align: center;
+  width: 75%;
+  /* divider width */
+  margin: 80px auto;
+  /* spacing above/below */
   margin-bottom: 10px;
 }
-.divider span { display: table-cell; position: relative; }
-.divider span:first-child, .divider span:last-child {
+
+.divider span {
+  display: table-cell;
+  position: relative;
+}
+
+.divider span:first-child,
+.divider span:last-child {
   width: 50%;
-  top: 13px;              /* adjust vertical align */
-  -moz-background-size: 100% 2px;   /* line width */
-  background-size: 100% 2px;      /* line width */
+  top: 13px;
+  /* adjust vertical align */
+  -moz-background-size: 100% 2px;
+  /* line width */
+  background-size: 100% 2px;
+  /* line width */
   background-position: 0 0, 0 100%;
   background-repeat: no-repeat;
 }
-.divider span:first-child {       /* color changes in here */
+
+.divider span:first-child {
+  /* color changes in here */
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(#000));
   background-image: -webkit-linear-gradient(180deg, transparent, #000);
   background-image: -moz-linear-gradient(180deg, transparent, #000);
   background-image: -o-linear-gradient(180deg, transparent, #000);
   background-image: linear-gradient(90deg, transparent, #000);
 }
+
 .divider span:nth-child(2) {
-  color: #000; padding: 0px 5px; width: auto; white-space: nowrap;
+  color: #000;
+  padding: 0px 5px;
+  width: auto;
+  white-space: nowrap;
 }
-.divider span:last-child {        /* color changes in here */
+
+.divider span:last-child {
+  /* color changes in here */
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(transparent));
   background-image: -webkit-linear-gradient(180deg, #000, transparent);
   background-image: -moz-linear-gradient(180deg, #000, transparent);
@@ -1347,19 +1391,24 @@ Bootstrap override
 
 .information-container {
   text-align: center;
-  font-family: '游明朝', serif; /* Elegant font from Google Fonts */
-  color: #333; /* Text color */
+  font-family: '游明朝', serif;
+  color: #333;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow for an elegant touch */
-  background: url('../img/paper-texture.avif') center center no-repeat; /* Paper texture background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background: url('../img/paper-texture.avif') center center no-repeat;
   background-size: cover;
-  color: #333; /* Text color */
+  color: #333;
   padding: 20px;
-  border: 1px solid #eee; /* Border for a letter-like effect */
+  border: 1px solid #eee;
   max-width: min(350px, 90%);
   height: 500px;
   margin: 15px auto;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow for an elegant touch */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
+.wedding-place {
+  font-family: '游明朝', serif;
+  text-align: center;
+  
 }
