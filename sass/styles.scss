@@ -1356,8 +1356,9 @@ Bootstrap override
   color: #333; /* Text color */
   padding: 20px;
   border: 1px solid #eee; /* Border for a letter-like effect */
-  max-width: 500px; /* Adjust the width as needed */
-  margin: 15px;
+  max-width: min(350px, 90%);
+  height: 500px;
+  margin: 15px auto;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow for an elegant touch */
 
