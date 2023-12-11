@@ -37,6 +37,21 @@
             background: linear-gradient(to right, rgba(255, 255, 255, 0), #333, rgba(255, 255, 255, 0));
             margin: 20px 0;
         }
+
+        .couple-names {
+            font-size: max(5vw, 25px);
+            text-shadow: #FC0 1px 0 10px;
+            font-family: 'Cinzel Decorative', cursive;
+            /* Custom font */
+            color: #FF69B4;
+            /* Pink color */
+            font-weight: bold;
+        }
+
+        .ourMessage {
+            font-size: min(5vw, 25px);
+            color: black;
+        }
     </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -137,7 +152,7 @@
                         <span class="letter">i</span>
                         <span class="letter">n</span>
                         <span class="letter">g</span>
-                    </h1>
+                    </h1><br><br>
                     <h2 class="couple-names">
                         <span class="letter">A</span>
                         <span class="letter">n</span>
@@ -185,11 +200,11 @@
             <h3 class="divider-text">BETROTHED</h3>
         </span><span></span></div>
     <section class="host-container">
-        <h2 class="fade-in-component" style="font-family: 'Covered By Your Grace', cursive;"> Meet the Groom</h2>
+        <h2 class="fade-in-component" style="font-family: 'Cinzel Decorative', cursive;"> Meet the Groom</h2>
         <div class="fade-in-component"><img src="img/baru_host.jpg" class="host-image" /></div>
         <p class="fade-in-component betrothed" style="font-family: 'Dancing Script', cursive;">Bartosz Lulka</p>
         <div class="hr-divider"></div>
-        <h2 class="fade-in-component" style="font-family: 'Covered By Your Grace', cursive;">Meet the Bride</h2>
+        <h2 class="fade-in-component" style="font-family: 'Cinzel Decorative', cursive;">Meet the Bride</h2>
         <div class="fade-in-component"><img src="img/anna_host.jpg" class="host-image" /></div>
         <p class="fade-in-component betrothed" style="font-family: 'Dancing Script', cursive;">Anna Morikawa</p>
     </section>
@@ -202,7 +217,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <h3 class="header fade-in-component">拝啓</h3>
-                    <p style="font-size: x-large; font-family: '游明朝', serif;">
+                    <p class="ourMessage">
 
                         <span class="fade-in-component">このたび 私たちふたりは 結婚式を行うこととなりました </br></span>
                         <span class="fade-in-component">つきましては 日頃お世話になっております皆さまに 感謝を込めて </br></span>
@@ -245,7 +260,7 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <br>
-        <div class="container">
+        <div class="container" style="color: black;">
             <table class="table">
                 <tr>
                     <th scope="row">住所</th>
@@ -291,14 +306,6 @@
             <h3>ご記入お願いします。</h3>
             <p>早めにご記入いただけると助かります！</p>
 
-            <p>食事制限がある方こちらで要録お願いいたします。</p>
-            <p>
-                <a href="https://www.tg-wn.com/guest/allergy-entry/AZ0000552193-$2y$10$FRBaDQDZe50MrTOjB5Toxu8nnLmO3AEwi2sJz8Eaw9dDdHnXUla"
-                    class="btn btn-primary" target="_blank">
-                    食事制限登録
-                </a>
-            </p>
-
             <form id="rsvp-form" class="rsvp-form" action="" method="POST">
                 <div id="people">
 
@@ -314,7 +321,7 @@
                     <div class="col-md-6 col-sm-6">
                         <div class="form-input-group">
                             <i class="fa fa-envelope"></i><input type="text" name="comment" id="comment" class=""
-                                placeholder="コメント">
+                                placeholder="コメント（任意）">
                         </div>
                     </div>
                 </div>
@@ -326,39 +333,50 @@
             </form>
         </div>
     </section>
-    <div id="personTemplate" style="display: none;">
-        <div class="row person">
+    <div id="personTemplate" style="display: none;" class="person">
+        <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="form-input-group">
                     <i class="fa fa-user"></i><input name="name" class="" placeholder="お名前" required>
-                    <input name="going" value="" required style="border: 0; width: 0%; position: absolute; right: 0;">
+                    <input name="going" value="" required style="border: 0; width: 0%; position: absolute; right: 0;"
+                        autocomplete="off">
                     <div class="btn-group detailsButton" role="group" aria-label="Basic example">
                         <button type="button" name="on_btn" onclick="toggleDetails(event, true)"
                             class="btn btn-secondary">参加</button>
-                            
+
                         <button type="button" name="off_btn" onclick="toggleDetails(event, false)"
                             class="btn btn-secondary">不参加</button>
-                        </div>
                     </div>
                 </div>
+            </div>
         </div>
         <div class="row" name="participateDetails" style="max-height: 0px; display: none;">
-            <div class="col-md-6 col-sm-6">
-                <div class="form-group">
-                    <label for="textareaInput">備考</label>
-                    <textarea class="form-control auto-expand" name="comment" id="textareaInput" rows="2"
-                        placeholder="Enter text"></textarea>
+            <div class="col-md-12 col-sm-12">
+                <p>食事制限</p>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <input name="is_allergy" value="" required style="border: 0; width: 0%; position: absolute;"
+                    autocomplete="off">
+                <div class="btn-group detailsButton" role="group" aria-label="Basic example">
+
+                    <button type="button" name="allergy_on_btn" onclick="toggleAllergy(event, true)"
+                        class="btn btn-secondary">有</button>
+
+                    <button type="button" name="allergy_off_btn" onclick="toggleAllergy(event, false)"
+                        class="btn btn-secondary">無</button>
                 </div>
             </div>
-            <!-- <div class="col-md-6 col-sm-6">
-                <div class="form-check" name="vegan">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                        ビーガン
-                    </label>
-                </div>
-            </div> -->
         </div>
+        <div class="row" name="allergyDetails" style="max-height: 0px; display: none;">
+            <p>食事制限があるこちらで登録お願いいたします。</p>
+            <p>
+                <a href="https://www.tg-wn.com/guest/allergy-entry/AZ0000552193-$2y$10$FRBaDQDZe50MrTOjB5Toxu8nnLmO3AEwi2sJz8Eaw9dDdHnXUla"
+                    class="btn btn-primary" target="_blank">
+                    食事制限登録
+                </a>
+            </p>
+        </div>
+    </div>
     </div>
     <script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
     <script src="node_modules/waypoints/lib/jquery.waypoints.min.js" onerror="loadJsFromCDN('waypoints.js')"></script>
@@ -410,7 +428,7 @@
         function toggleDetails(event, on) {
             const button = event.currentTarget;
             const person = button.closest('.person'); // Find the parent element with class 'person'
-            const detailsInput = person.parentElement.querySelector('[name="participateDetails"]');
+            const detailsInput = person.querySelector('[name="participateDetails"]');
             let other_btn
             if (on) {
                 other_btn = button.parentElement.querySelector('[name="off_btn"]');
@@ -418,9 +436,42 @@
             else {
                 other_btn = button.parentElement.querySelector('[name="on_btn"]');
             }
-            
+
             // update going bool 
-            const goingBool = person.parentElement.querySelector('[name="going"]');
+            const goingBool = person.querySelector('[name="going"]');
+            goingBool.value = on.toString();
+
+            button.style["background-color"] = "#e8ca6f"
+            other_btn.style["background-color"] = "#fff"
+            const allergyBool = person.querySelector('[name="is_allergy"]');
+            const allergyDetails = person.querySelector('[name="allergyDetails"]');
+            if (on) {
+                detailsInput.style.display = "block";
+                detailsInput.style.maxHeight = detailsInput.scrollHeight + 'px';
+                allergyBool.required = true;
+            } else {
+                detailsInput.style.maxHeight = '0';
+                allergyBool.value = "";
+                allergyBool.required = false;
+                allergyDetails.style.maxHeight = '0';
+            }
+            detailsInput.classList.add('transition-effect');
+        }
+
+        function toggleAllergy(event, on) {
+            const button = event.currentTarget;
+            const person = button.closest('.person'); // Find the parent element with class 'person'
+            const detailsInput = person.querySelector('[name="allergyDetails"]');
+            let other_btn
+            if (on) {
+                other_btn = button.parentElement.querySelector('[name="allergy_off_btn"]');
+            }
+            else {
+                other_btn = button.parentElement.querySelector('[name="allergy_on_btn"]');
+            }
+
+            // update going bool 
+            const goingBool = person.querySelector('[name="is_allergy"]');
             goingBool.value = on.toString();
 
             button.style["background-color"] = "#e8ca6f"
@@ -437,7 +488,6 @@
             const personName = getParameterByName('name' + i);
             addPerson(i, personName);
         }
-        // }
     </script>
     <script>
         function makeTimer() {
@@ -605,9 +655,3 @@
 </body>
 
 </html>
-<!-- 
-<label class="toggle detailsButton">
-    <input type="checkbox" onchange="toggleDetails(event)">
-    <span class="slider"></span>
-    <span class="labels" data-on="　参加" data-off="不参加"></span>
-</label> -->

@@ -43,7 +43,7 @@ a:focus {
 }
 
 body {
-  font-family: $sans-serif;
+  font-family: '游明朝', serif;
   font-weight: $light;
   color: $txt-primary;
   -webkit-text-size-adjust: 100%;
@@ -1039,6 +1039,7 @@ RSVP form
         -moz-border-radius: 6px;
         -webkit-border-radius: 6px;
         border-radius: 6px;
+        color: black;
         border: none;
       }
 
@@ -1104,23 +1105,13 @@ footer {
 }
 
 .wedding-title {
-  font-size: max(6vw, 40px);
+  font-size: max(5vw, 40px);
   text-shadow: #FC0 1px 0 10px;
   font-family: 'Cinzel Decorative', cursive;
   /* Custom font */
   color: #FF69B4;
   /* Pink color */
   font-weight: bold;
-}
-
-.couple-names {
-  font-size: max(4vw, 25px);
-  text-shadow: rgb(0, 0, 0) 1px 1px 20px;
-  // font-size: 5vw; /* Responsive font size */
-  font-family: 'Cinzel Decorative', cursive;
-  /* Custom font */
-  color: #ffffff;
-  /* Black color */
 }
 
 .divider-text {
@@ -1154,32 +1145,10 @@ Bootstrap override
 */
 @import url(https://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
 
-
-// #timer {
-//   display: flex;
-//   justify-content: center;
-//   // line-height: 1;
-//   // padding: 20px;
-//   // font-size: 40px;
-//   text-align: bottom;
-//   font-family: 'Covered By Your Grace', cursive;
-//   span {
-//     display: block;
-//     // font-size: 4vw;
-//   }
-//   div {
-//     display: inline-block;
-//     line-height: 1;
-//     padding: 20px;
-//     // font-size: 40px;
-//   }
-// }
-
-
 #timer {
-  font-family: 'Covered By Your Grace', cursive;
+  font-family: 'Cinzel Decorative', cursive;
   text-align: center;
-  background: rgba(17, 17, 17, 0.5);
+  // background: rgba(17, 17, 17, 0.5);
 
   // padding-bottom: 40px;
   // margin-left: 20px;
@@ -1187,17 +1156,17 @@ Bootstrap override
   // margin-right: 20px;
   // border-radius: 14% 86% 11% 89% / 74% 49% 51% 26%;
   #days {
-    font-size: 10vw;
+    font-size: 7vw;
     color: #db4844;
   }
 
   #hours {
-    font-size: 8vw;
+    font-size: 6vw;
     color: #f07c22;
   }
 
   #minutes {
-    font-size: 6vw;
+    font-size: 5vw;
     color: #f6da74;
   }
 
@@ -1210,22 +1179,17 @@ Bootstrap override
     display: inline-block;
     line-height: 1;
     padding: 2vw;
+    text-shadow: 0 0 black;
     // margin: 15px;
-    font-size: 4vw;
+    // font-size: 4vw;
   }
 
   span {
     display: block;
-    font-size: 20px;
-    color: white;
+    font-size: 4vw;
+    // color: white;
   }
 
-
-  //   body {
-  //     text-align: center;
-  //     font-family: 'Covered By Your Grace', cursive;
-  //   color: white;
-  // }
 }
 
 
