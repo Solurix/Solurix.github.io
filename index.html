@@ -304,7 +304,7 @@
 
         <div class="container">
             <h3>ご記入お願いします。</h3>
-            <p>早めにご記入いただけると助かります！</p>
+            <p>勝手ながら１月２３日までに<br>ご返事頂ければ幸いです</p>
 
             <form id="rsvp-form" class="rsvp-form" action="" method="POST">
                 <div id="people">
@@ -328,7 +328,7 @@
                 <div class="row">
                     <div class="col-md-12" id="alert-wrapper"></div>
                 </div>
-                <button type="submit" class="btn-fill rsvp-btn">登録
+                <button type="submit" class="btn-fill rsvp-btn" id="submitButton">登録
                 </button>
             </form>
         </div>
@@ -629,7 +629,7 @@
             var data = $(this).serialize();
             console.log(data);
             console.log(this);
-            $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+            $('#alert-wrapper').html(alert_markup('info', '<strong>送信中</strong>'));
             $.post('https://script.google.com/macros/s/AKfycbw8grzwZmBnuX_Tqf7fvYxoItHX3z4suBiqGNeASxD9PAn-uOb_xd_bQOWcDpNwQLEZoA/exec', data)
                 .done(function (data) {
                     console.log(data);
@@ -637,12 +637,16 @@
                         $('#alert-wrapper').html(alert_markup('danger', data.message));
                     } else {
                         $('#alert-wrapper').html('');
-                        // $('#rsvp-modal').modal('show');
+                        const submitButton = document.getElementById('submitButton');
+
+                        submitButton.disabled = true;
+                        submitButton.textContent = "登録済！"
+                        submitButton.style.backgroundColor = "gray"
                     }
                 })
                 .fail(function (data) {
                     console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>すみません！</strong> エラーが発生しました～ '));
                 });
             return false;
         });
