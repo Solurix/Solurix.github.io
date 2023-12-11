@@ -201,9 +201,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3  class="header fade-in-component">拝啓</h3>
+                    <h3 class="header fade-in-component">拝啓</h3>
                     <p style="font-size: x-large; font-family: '游明朝', serif;">
-                        
+
                         <span class="fade-in-component">このたび 私たちふたりは 結婚式を行うこととなりました </br></span>
                         <span class="fade-in-component">つきましては 日頃お世話になっております皆さまに 感謝を込めて </br></span>
                         <span class="fade-in-component">ささやかではございますが</br></span>
@@ -213,9 +213,9 @@
                         <span class="fade-in-component">ご案内申し上げます </br></span>
                         <span class="fade-in-component">敬具</span>
                     </p>
-                    </div>
                 </div>
             </div>
+        </div>
     </section>
     <div class="divider fade-in-component"><span></span><span>
             <h3 class="divider-text">PHOTOS</h3>
@@ -292,27 +292,15 @@
             <p>早めにご記入いただけると助かります！</p>
 
             <p>食事制限がある方こちらで要録お願いいたします。</p>
-            <a href="https://www.tg-wn.com/guest/allergy-entry/AZ0000552193-$2y$10$FRBaDQDZe50MrTOjB5Toxu8nnLmO3AEwi2sJz8Eaw9dDdHnXUla" 
-                class="btn btn-primary" target="_blank">
-                食事制限登録
-            </a>
+            <p>
+                <a href="https://www.tg-wn.com/guest/allergy-entry/AZ0000552193-$2y$10$FRBaDQDZe50MrTOjB5Toxu8nnLmO3AEwi2sJz8Eaw9dDdHnXUla"
+                    class="btn btn-primary" target="_blank">
+                    食事制限登録
+                </a>
+            </p>
 
             <form id="rsvp-form" class="rsvp-form" action="" method="POST">
                 <div id="people">
-                    <!-- <div class="row" id="person1">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name1" class="" id="name1" placeholder="お名前"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="text" name="allergies1" id="allergies1"
-                                    class="" placeholder="アレルギー・その他">
-                            </div>
-                        </div>
-                    </div> -->
 
                 </div>
 
@@ -333,9 +321,7 @@
                 <div class="row">
                     <div class="col-md-12" id="alert-wrapper"></div>
                 </div>
-                <button class="btn-fill rsvp-btn">
-                    Yes,
-                    that's me!
+                <button type="submit" class="btn-fill rsvp-btn">登録
                 </button>
             </form>
         </div>
@@ -345,35 +331,33 @@
             <div class="col-md-12 col-sm-12">
                 <div class="form-input-group">
                     <i class="fa fa-user"></i><input name="name" class="" placeholder="お名前" required>
+                    <input name="going" value="" required style="border: 0; width: 0%; position: absolute; right: 0;">
                     <div class="btn-group detailsButton" role="group" aria-label="Basic example">
                         <button type="button" name="on_btn" onclick="toggleDetails(event, true)"
                             class="btn btn-secondary">参加</button>
+                            
                         <button type="button" name="off_btn" onclick="toggleDetails(event, false)"
                             class="btn btn-secondary">不参加</button>
+                        </div>
                     </div>
-                    <!-- <div class="detailsButton">
-                        <button type="button" class="btn btn-sm" onchange="toggleDetails(event)"> 参加 </button>
-                        <button type="button" class="btn btn-sm" onchange="toggleDetails(event)"> 不参加 </button>
-                    </div> -->
                 </div>
-            </div>
         </div>
         <div class="row" name="participateDetails" style="max-height: 0px; display: none;">
             <div class="col-md-6 col-sm-6">
                 <div class="form-group">
-                    <label for="textareaInput">アレルギー・その他</label>
-                    <textarea class="form-control auto-expand" name="allergies" id="textareaInput" rows="2"
+                    <label for="textareaInput">備考</label>
+                    <textarea class="form-control auto-expand" name="comment" id="textareaInput" rows="2"
                         placeholder="Enter text"></textarea>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="form-check">
+            <!-- <div class="col-md-6 col-sm-6">
+                <div class="form-check" name="vegan">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
                         ビーガン
                     </label>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
@@ -418,7 +402,7 @@
             if (name !== null && name.length > 0) {
                 input = clone.querySelector('input[name="name"]')
                 input.value = name;
-                input.disabled = true;
+                // input.disabled = true;
             }
             document.getElementById("people").appendChild(clone);
         }
@@ -434,18 +418,13 @@
             else {
                 other_btn = button.parentElement.querySelector('[name="on_btn"]');
             }
+            
+            // update going bool 
+            const goingBool = person.parentElement.querySelector('[name="going"]');
+            goingBool.value = on.toString();
+
             button.style["background-color"] = "#e8ca6f"
             other_btn.style["background-color"] = "#fff"
-            // if (checkbox.checked) {
-            //     detailsInput.style.height = 'auto'; // Set height to 'auto' to make it grow to its content
-            //     detailsInput.style.opacity = 1;
-            //     detailsInput.style.display = 'block'
-            //     detailsInput.classList.add('transition-effect');
-            // } else {
-            //     detailsInput.style.height = '0'; // Set height to 0 to make it shrink
-            //     detailsInput.style.opacity = 0;
-            //     detailsInput.classList.remove('transition-effect');
-            // }
             if (on) {
                 detailsInput.style.display = "block"
                 detailsInput.style.maxHeight = detailsInput.scrollHeight + 'px';
@@ -454,38 +433,6 @@
             }
             detailsInput.classList.add('transition-effect');
         }
-        // function toggleDetails(event) {
-        //     const checkbox = event.currentTarget;
-        //     const person = checkbox.closest('.person'); // Find the parent element with class 'person'
-        //     const detailsInput = person.parentElement.querySelector('[name="participateDetails"]');
-
-        //     // if (checkbox.checked) {
-        //     //     detailsInput.style.height = 'auto'; // Set height to 'auto' to make it grow to its content
-        //     //     detailsInput.style.opacity = 1;
-        //     //     detailsInput.style.display = 'block'
-        //     //     detailsInput.classList.add('transition-effect');
-        //     // } else {
-        //     //     detailsInput.style.height = '0'; // Set height to 0 to make it shrink
-        //     //     detailsInput.style.opacity = 0;
-        //     //     detailsInput.classList.remove('transition-effect');
-        //     // }
-        //     if (checkbox.checked) {
-        //         detailsInput.style.display = "block"
-        //         detailsInput.style.maxHeight = detailsInput.scrollHeight + 'px';
-        //     } else {
-        //         detailsInput.style.maxHeight = '0';
-        //     }
-        //     detailsInput.classList.add('transition-effect');
-        // }
-
-
-        // Get the 'name' parameter from the URL
-        // var person1 = getParameterByName('name');
-
-        // Check if the parameter exists and set it as the input field's value
-        // if (person1 !== null) {
-        //     document.getElementById('name1').value = person1;
-        //     document.getElementById('name1').disabled = true;
         for (var i = 1; i <= getParameterByName('n'); i++) {
             const personName = getParameterByName('name' + i);
             addPerson(i, personName);
@@ -545,7 +492,7 @@
                             arrows: false,
                             centerMode: true,
                             centerPadding: '40px',
-                            slidesToShow: 3
+                            slidesToShow: 1
                         }
                     },
                     {
@@ -624,6 +571,31 @@
                 opacity: [0, 1], // Fade in each letter
                 delay: (el, i) => 500 + 100 * i, // Increase the delay for slower animation
             });
+    </script>
+    <script>
+        $('#rsvp-form').on('submit', function (e) {
+            console.log("Submitting the data")
+            // e.preventDefault();
+            var data = $(this).serialize();
+            console.log(data);
+            console.log(this);
+            $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+            $.post('https://script.google.com/macros/s/AKfycbw8grzwZmBnuX_Tqf7fvYxoItHX3z4suBiqGNeASxD9PAn-uOb_xd_bQOWcDpNwQLEZoA/exec', data)
+                .done(function (data) {
+                    console.log(data);
+                    if (data.result === "error") {
+                        $('#alert-wrapper').html(alert_markup('danger', data.message));
+                    } else {
+                        $('#alert-wrapper').html('');
+                        // $('#rsvp-modal').modal('show');
+                    }
+                })
+                .fail(function (data) {
+                    console.log(data);
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+                });
+            return false;
+        });
     </script>
 
 
