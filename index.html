@@ -49,8 +49,14 @@
         }
 
         .ourMessage {
-            font-size: min(5vw, 25px);
+            font-size: min(4vw, 25px);
             color: black;
+        }
+        .datetimeMsg{
+            font-size: min(6vw, 30px);
+            color: black;
+            font-family: 'Cinzel Decorative', cursive;
+
         }
     </style>
     <meta charset="utf-8">
@@ -185,15 +191,22 @@
     </section>
 
     <div class="divider fade-in-component"><span></span><span>
-            <h3 class="divider-text">INFORMATION</h3>
+            <h3 class="divider-text">DATE & TIME</h3>
         </span><span></span></div>
     <section class="information-container">
-        <h2 class="fade-in-component">挙式・披露宴</h2>
-        <h2 class="fade-in-component">2024.04.21 Sun</h2>
-        <h3 class="fade-in-component">挙式/ 15:00</h3>
-        <p class="fade-in-component">受付/ 14:30</p>
-        <h3 class="fade-in-component">披露宴/ 16:00</h3>
-        <p class="fade-in-component">受付/ 15:30</p>
+        <br>
+        <br>
+        <br>
+        <!-- <h2 class="fade-in-component">DATE & TIME</h2> -->
+        <p class="fade-in-component" style="font-size: x-large; color: black; font-weight: 1000;">　2024年4月21日（日）</p>
+        <div class="datetimeMsg">
+            <span class="fade-in-component">開場</span><br>
+            <span class="fade-in-component">14:30</span><br><br>
+            <span class="fade-in-component">挙式</span><br>
+            <span class="fade-in-component">15:45</span><br><br>
+            <span class="fade-in-component">披露宴</span><br>
+            <span class="fade-in-component">16:45</span><br><br>
+        </div>
     </section>
 
     <div class="divider fade-in-component"><span></span><span>
@@ -216,17 +229,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="header fade-in-component">拝啓</h3>
                     <p class="ourMessage">
-
-                        <span class="fade-in-component">このたび 私たちふたりは 結婚式を行うこととなりました </br></span>
-                        <span class="fade-in-component">つきましては 日頃お世話になっております皆さまに 感謝を込めて </br></span>
-                        <span class="fade-in-component">ささやかではございますが</br></span>
-                        <span class="fade-in-component">祝言を執り行いたく存じます </br></span>
-                        <span class="fade-in-component">お忙しい中 まことに恐縮ではございますが </br></span>
-                        <span class="fade-in-component">ぜひご出席くださいますよう </br></span>
-                        <span class="fade-in-component">ご案内申し上げます </br></span>
-                        <span class="fade-in-component">敬具</span>
+                        <span class="fade-in-component">親愛なる皆様<br></span>
+                        <span class="fade-in-component">このたび私たちは　皆様にご挨拶<br></span>
+                        <span class="fade-in-component">ご披露をかねまして<br></span>
+                        <span class="fade-in-component">結婚式をすることに致しました<br></span>
+                        <span class="fade-in-component">この新たな出発の日を<br></span>
+                        <span class="fade-in-component">日々お世話になっております皆様と<br></span>
+                        <span class="fade-in-component">楽しく過ごさせて頂ければ幸いに存じます<br></span>
+                        <span class="fade-in-component">心ばかりの披露パーティーですが<br></span>
+                        <span class="fade-in-component">皆様とお会いできますことを楽しみにしております<br></span>
+                        <span class="fade-in-component">ご多用とは存じますが<br></span>
+                        <span class="fade-in-component">ご出席くださいますようご案内申し上げます<br></span>
+                        <br>
+                        <span class="fade-in-component">2024年２月吉日<br></span>
+                        <span class="fade-in-component">ルルカ　バルトシュ<br></span>
+                        <span class="fade-in-component">森川　杏那<br></span>
                     </p>
                 </div>
             </div>
@@ -304,7 +322,7 @@
 
         <div class="container">
             <h3>ご記入お願いします。</h3>
-            <p>勝手ながら１月２３日までに<br>ご返事頂ければ幸いです</p>
+            <p>勝手ながら３月１９日までに<br>ご返事頂ければ幸いです</p>
 
             <form id="rsvp-form" class="rsvp-form" action="" method="POST">
                 <div id="people">
@@ -492,7 +510,7 @@
     <script>
         function makeTimer() {
 
-            var endTime = new Date("2024-04-21 15:00:00");
+            var endTime = new Date("2024-04-21 15:45:00");
             var endTime = (Date.parse(endTime)) / 1000;
 
             var now = new Date();
