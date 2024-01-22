@@ -28,15 +28,13 @@
 
 
         .host-image {
-            /* Your existing styles */
             max-width: min(800px, 90%);
             max-height: 80%;
             margin: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.56);
 
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-
+            animation: dissolve 5s ease-in-out;
+            /* Apply the dissolve animation */
             display: block;
             /* Set the initial display to block */
         }
@@ -196,14 +194,21 @@
         </span><span></span></div>
     <section class="host-container">
         <h2 class="fade-in-component" style="font-family: 'Cinzel Decorative', cursive;"> Meet the Groom</h2>
-        <div class="switch-images">
-            <img src="img/baru_host2.jpg" class="host-image top fade-in-component" />
-            <img src="img/baru_host.jpg" class="host-image bottom fade-in-component" />
+        <div class="switch-images-container" id="container1">
+            <div class="switch-images">
+                <img src="img/baru_host2.jpg" class="host-image top fade-in-component" />
+                <img src="img/baru_host.jpg" class="host-image bottom fade-in-component" />
+            </div>
         </div>
         <p class="fade-in-component betrothed" style="font-family: 'Dancing Script', cursive;">Bartosz Lulka</p>
         <div class="hr-divider"></div>
         <h2 class="fade-in-component" style="font-family: 'Cinzel Decorative', cursive;">Meet the Bride</h2>
-        <div class="fade-in-component"><img src="img/anna_host.jpg" class="host-image" /></div>
+        <div class="switch-images-container" id="container2">
+            <div class="switch-images">
+                <img src="img/anna_host2.jpg" class="host-image top fade-in-component" />
+                <img src="img/anna_host.jpg" class="host-image bottom fade-in-component" />
+            </div>
+        </div>
         <p class="fade-in-component betrothed" style="font-family: 'Dancing Script', cursive;">Anna Morikawa</p>
     </section>
 
@@ -581,51 +586,51 @@
         });
     </script>
 
-<script>
-    const fadeOptions = {
-        threshold: 0.5,
-    };
+    <script>
+        const fadeOptions = {
+            threshold: 0.5,
+        };
 
-    const fadeObserver = new IntersectionObserver((entries, fadeObserver) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                fadeObserver.unobserve(entry.target);
-            }
+        const fadeObserver = new IntersectionObserver((entries, fadeObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, fadeOptions);
+
+        const fadeElements = document.querySelectorAll('.fade-in-component');
+
+        fadeElements.forEach((element) => {
+            fadeObserver.observe(element);
         });
-    }, fadeOptions);
 
-    const fadeElements = document.querySelectorAll('.fade-in-component');
+        const imageSwitchOptions = {
+            threshold: 1, // Trigger when the entire image enters or exits the viewport
+        };
 
-    fadeElements.forEach((element) => {
-        fadeObserver.observe(element);
-    });
+        const imageSwitchObservers = document.querySelectorAll('.switch-images-container').forEach((container) => {
+            const imageSwitchObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    const topImage = container.querySelector('.host-image.top');
+                    const bottomImage = container.querySelector('.host-image.bottom');
+                    
+                    if (entry.isIntersecting) {
+                        // Image is fully in the viewport
+                        topImage.style.display = 'none';
+                        bottomImage.style.display = 'block';
+                    } else {
+                        // Image is fully out of the viewport
+                        topImage.style.display = 'block';
+                        bottomImage.style.display = 'none';
+                    }
+                });
+            }, imageSwitchOptions);
 
-    // Updated observer for image switching
-    const imageSwitchOptions = {
-        threshold: 1, // Trigger when the entire image enters or exits the viewport
-    };
-
-    const imageSwitchObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const topImage = document.querySelector('.host-image.top');
-            const bottomImage = document.querySelector('.host-image.bottom');
-            
-            if (entry.isIntersecting) {
-                // Image is fully in the viewport
-                topImage.style.display = 'none';
-                bottomImage.style.display = 'block';
-            } else {
-                // Image is fully out of the viewport
-                topImage.style.display = 'block';
-                bottomImage.style.display = 'none';
-            }
+            imageSwitchObserver.observe(container);
         });
-    }, imageSwitchOptions);
-
-    const switchImagesContainer = document.querySelector('.switch-images');
-    imageSwitchObserver.observe(switchImagesContainer);
-</script>
+    </script>
 
     <script>
         // Define the target elements
