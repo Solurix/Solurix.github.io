@@ -25,6 +25,21 @@
             margin: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 56);
         }
+
+
+        .host-image {
+            /* Your existing styles */
+            max-width: min(800px, 90%);
+            max-height: 80%;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.56);
+
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+
+            display: block;
+            /* Set the initial display to block */
+        }
     </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -181,7 +196,10 @@
         </span><span></span></div>
     <section class="host-container">
         <h2 class="fade-in-component" style="font-family: 'Cinzel Decorative', cursive;"> Meet the Groom</h2>
-        <div class="fade-in-component"><img src="img/baru_host.jpg" class="host-image" /></div>
+        <div class="switch-images">
+            <img src="img/baru_host2.jpg" class="host-image top fade-in-component" />
+            <img src="img/baru_host.jpg" class="host-image bottom fade-in-component" />
+        </div>
         <p class="fade-in-component betrothed" style="font-family: 'Dancing Script', cursive;">Bartosz Lulka</p>
         <div class="hr-divider"></div>
         <h2 class="fade-in-component" style="font-family: 'Cinzel Decorative', cursive;">Meet the Bride</h2>
@@ -562,26 +580,53 @@
             });
         });
     </script>
-    <script>
-        const fadeOptions = {
-            threshold: 0.5, // Adjust this threshold as needed
-        };
 
-        const fadeObserver = new IntersectionObserver((entries, fadeObserver) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in'); // Add a class to fade in the element
-                    fadeObserver.unobserve(entry.target); // Stop observing once the element is visible
-                }
-            });
-        }, fadeOptions);
+<script>
+    const fadeOptions = {
+        threshold: 0.5,
+    };
 
-        const fadeElements = document.querySelectorAll('.fade-in-component');
-
-        fadeElements.forEach((element) => {
-            fadeObserver.observe(element);
+    const fadeObserver = new IntersectionObserver((entries, fadeObserver) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                fadeObserver.unobserve(entry.target);
+            }
         });
-    </script>
+    }, fadeOptions);
+
+    const fadeElements = document.querySelectorAll('.fade-in-component');
+
+    fadeElements.forEach((element) => {
+        fadeObserver.observe(element);
+    });
+
+    // Updated observer for image switching
+    const imageSwitchOptions = {
+        threshold: 1, // Trigger when the entire image enters or exits the viewport
+    };
+
+    const imageSwitchObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const topImage = document.querySelector('.host-image.top');
+            const bottomImage = document.querySelector('.host-image.bottom');
+            
+            if (entry.isIntersecting) {
+                // Image is fully in the viewport
+                topImage.style.display = 'none';
+                bottomImage.style.display = 'block';
+            } else {
+                // Image is fully out of the viewport
+                topImage.style.display = 'block';
+                bottomImage.style.display = 'none';
+            }
+        });
+    }, imageSwitchOptions);
+
+    const switchImagesContainer = document.querySelector('.switch-images');
+    imageSwitchObserver.observe(switchImagesContainer);
+</script>
+
     <script>
         // Define the target elements
         const titleElement = document.querySelector('.wedding-title');
