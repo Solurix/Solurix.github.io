@@ -1385,3 +1385,44 @@ Bootstrap override
   font-family: '游明朝', serif;
   text-align: center;
 }
+
+.host-image {
+  /* width: 50vw; */
+  max-width: min(800px, 90%);
+  max-height: 80%;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 56);
+}
+
+.betrothed {
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 50px;
+}
+
+.hr-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #333, rgba(255, 255, 255, 0));
+  margin: 20px 0;
+}
+
+.couple-names {
+  font-size: max(5vw, 25px);
+  text-shadow: #FC0 1px 0 10px;
+  font-family: 'Cinzel Decorative', cursive;
+  /* Custom font */
+  color: #FF69B4;
+  /* Pink color */
+  font-weight: bold;
+}
+
+.ourMessage {
+  font-size: min(4vw, 25px);
+  color: black;
+}
+.datetimeMsg{
+  font-size: min(6vw, 30px);
+  color: black;
+  /* font-family: 'Cinzel Decorative', cursive; */
+
+}
