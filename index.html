@@ -33,10 +33,27 @@
             margin: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.56);
 
-            animation: dissolve 5s ease-in-out;
+            /* animation: dissolve 0.3s ease-in-out; */
             /* Apply the dissolve animation */
             display: block;
             /* Set the initial display to block */
+        }
+
+        .time-img {
+            position: relative;
+            width: 100vw;
+            height: 75vw;
+            /* 4:3 aspect ratio */
+            max-width: 100%;
+            max-height: 100vh;
+            overflow: hidden;
+        }
+
+        .time-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Maintain aspect ratio while fitting within the container */
         }
     </style>
     <meta charset="utf-8">
@@ -113,10 +130,10 @@
             </div>
     </section>
 
-    <section id="invitation" class="section-padding fade-in-component">
+    <section id="invitation" class="fade-in-component">
         <div class="container">
             <div class="row fade-in-component">
-                <div class="col-md-12 col-sm-12 text-center">
+                <div class="text-center">
                     <h1 class="wedding-title">
                         <span class="letter">W</span>
                         <span class="letter">e</span>
@@ -173,21 +190,9 @@
     <div class="divider fade-in-component"><span></span><span>
             <h3 class="divider-text">DATE & TIME</h3>
         </span><span></span></div>
-    <section class="information-container">
-        <br>
-        <br>
-        <br>
-        <!-- <h2 class="fade-in-component">DATE & TIME</h2> -->
-        <p class="fade-in-component" style="font-size: x-large; color: black; font-weight: 1000;">　2024年4月21日（日）</p>
-        <div class="datetimeMsg">
-            <span class="fade-in-component">開場</span><br>
-            <span class="fade-in-component">15:15</span><br><br>
-            <span class="fade-in-component">挙式</span><br>
-            <span class="fade-in-component">15:45</span><br><br>
-            <span class="fade-in-component">披露宴</span><br>
-            <span class="fade-in-component">16:45</span><br><br>
-        </div>
-    </section>
+    <div class="time-img fade-in-component">
+        <img src="img/time-schedule.jpg" />
+    </div>
 
     <div class="divider fade-in-component"><span></span><span>
             <h3 class="divider-text">BETROTHED</h3>
@@ -195,8 +200,8 @@
     <section class="host-container">
         <h2 class="fade-in-component" style="font-family: 'Cinzel Decorative', cursive;"> Meet the Groom</h2>
         <div class="switch-images-container" id="container1">
-            <div class="switch-images">
-                <img src="img/baru_host2.jpg" class="host-image top fade-in-component" />
+            <div class="switch-images fade-in-component">
+                <img src="img/baru_host2.jpg" class="host-image top" />
                 <img src="img/baru_host.jpg" class="host-image bottom " />
             </div>
         </div>
@@ -204,8 +209,8 @@
         <div class="hr-divider"></div>
         <h2 class="fade-in-component" style="font-family: 'Cinzel Decorative', cursive;">Meet the Bride</h2>
         <div class="switch-images-container" id="container2">
-            <div class="switch-images">
-                <img src="img/anna_host2.jpg" class="host-image top fade-in-component" />
+            <div class="switch-images fade-in-component">
+                <img src="img/anna_host2.jpg" class="host-image top" />
                 <img src="img/anna_host.jpg" class="host-image bottom " />
             </div>
         </div>
@@ -615,7 +620,7 @@
                 entries.forEach((entry) => {
                     const topImage = container.querySelector('.host-image.top');
                     const bottomImage = container.querySelector('.host-image.bottom');
-                    
+
                     if (entry.isIntersecting) {
                         // Image is fully in the viewport
                         topImage.style.display = 'none';

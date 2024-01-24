@@ -1363,16 +1363,6 @@ Bootstrap override
   margin: 20px auto;
 }
 
-.information-container {
-  @include frame-container;
-  max-width: min(350px, 90%);
-  height: 500px;
-  background: url('../img/paper-texture.avif') center center no-repeat;
-  background-size: cover;
-  font-family: '游明朝', serif;
-
-}
-
 .host-container {
   @include frame-container;
   max-width: min(500px, 90%);
