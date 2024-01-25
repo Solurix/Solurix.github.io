@@ -1,0 +1,734 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="ja"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="ja"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="ja"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="ja"> <!--<![endif]-->
+
+<head>
+    <style>
+        .last-image {
+            /* width: 50vw; */
+            max-width: min(800px, 100%);
+            max-height: 80%;
+            /* margin: 20px; */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 56);
+        }
+
+        .slider-image {
+            width: 80vw;
+            max-width: 800px;
+            max-height: 80%;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 56);
+        }
+
+
+        .host-image {
+            max-width: min(800px, 90%);
+            max-height: 80%;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.56);
+
+            /* animation: dissolve 0.3s ease-in-out; */
+            /* Apply the dissolve animation */
+            display: block;
+            /* Set the initial display to block */
+        }
+
+        .time-img {
+            position: relative;
+            width: 100vw;
+            height: 75vw;
+            /* 4:3 aspect ratio */
+            max-width: 100%;
+            max-height: 100vh;
+            overflow: hidden;
+        }
+
+        .time-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Maintain aspect ratio while fitting within the container */
+        }
+
+        .simple-text {
+            color: black;
+            font-size: 18px;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>杏那＆Bartoszの結婚式!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel+Decorative">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap">
+    <meta name="description" content="We would like to invite you to our big day.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="杏那＆Bartoszの結婚式">
+    <meta property="og:description" content="We would like to invite you to our big day.">
+    <meta property="og:image" content="https://wedding.ramswaroop.me/img/hero-min.jpg">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="ab.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ab.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ab.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.3.11/slick.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+    <script>
+        // load css files from CDN if local node_modules fail
+        function loadCssFromCDN(css) {
+            // create new link tag
+            const link = document.createElement('link');
+            if (css === 'animate.css') {
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css';
+            } else if (css === 'font-awesome.css') {
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+            }
+            link.rel = 'stylesheet';
+
+            // add link tag to head section
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+
+        // load js files from CDN if local node_modules fail
+        function loadJsFromCDN(js) {
+            if (js === 'waypoints.js') {
+                document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"><\/script>');
+            } else if (js === 'jquery.js') {
+                document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>');
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/queries.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" onerror="loadCssFromCDN('animate.css')">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css"
+        onerror="loadCssFromCDN('font-awesome.css')">
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <style>
+        body {
+            background-image: url('img/flower_bg.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            /* Optional, for a fixed background effect */
+        }
+    </style>
+</head>
+
+<body id="top">
+    <section class="hero fade-in-component">
+        <div class="container">
+            <div class="hero_content text-center">
+                <img src="abfull.png">
+            </div>
+    </section>
+
+    <section id="invitation" class="fade-in-component">
+        <div class="container">
+            <div class="row fade-in-component">
+                <div class="text-center">
+                    <h1 class="wedding-title">
+                        <span class="letter">W</span>
+                        <span class="letter">e</span>
+                        <span class="letter">l</span>
+                        <span class="letter">c</span>
+                        <span class="letter">o</span>
+                        <span class="letter">m</span>
+                        <span class="letter">e</span>
+                        <br>
+                        <span class="letter">t</span>
+                        <span class="letter">o</span><br>
+                        <span class="letter">O</span>
+                        <span class="letter">u</span>
+                        <span class="letter">r</span><br>
+                        <span class="letter">W</span>
+                        <span class="letter">e</span>
+                        <span class="letter">d</span>
+                        <span class="letter">d</span>
+                        <span class="letter">i</span>
+                        <span class="letter">n</span>
+                        <span class="letter">g</span>
+                    </h1><br><br>
+                    <h2 class="couple-names">
+                        <span class="letter">A</span>
+                        <span class="letter">n</span>
+                        <span class="letter">n</span>
+                        <span class="letter">a</span>
+                        <span class="letter">&</span>
+                        <span class="letter">B</span>
+                        <span class="letter">a</span>
+                        <span class="letter">r</span>
+                        <span class="letter">t</span>
+                        <span class="letter">o</span>
+                        <span class="letter">s</span>
+                        <span class="letter">z</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="divider fade-in-component"><span></span><span>
+            <h3 class="divider-text">COUNTDOWN</h3>
+        </span><span></span></div>
+
+    <section class="fade-in-component">
+        <div id="timer">
+            <div id="days"></div>
+            <div id="hours"></div>
+            <div id="minutes"></div>
+            <div id="seconds"></div>
+        </div>
+    </section>
+
+    <div class="divider fade-in-component"><span></span><span>
+            <h3 class="divider-text">DATE & TIME</h3>
+        </span><span></span></div>
+    <div class="time-img fade-in-component">
+        <img src="img/time-schedule.jpg" />
+    </div>
+
+    <div class="divider fade-in-component"><span></span><span>
+            <h3 class="divider-text">BETROTHED</h3>
+        </span><span></span></div>
+    <section class="host-container">
+        <h2 class="fade-in-component" style="font-family: 'Cinzel Decorative', cursive;"> Meet the Groom</h2>
+        <div class="switch-images-container" id="container1">
+            <div class="switch-images fade-in-component">
+                <img src="img/baru_host2.jpg" class="host-image top" />
+                <img src="img/baru_host.jpg" class="host-image bottom " />
+            </div>
+        </div>
+        <p class="fade-in-component betrothed" style="font-family: 'Dancing Script', cursive;">Bartosz Lulka</p>
+        <div class="hr-divider"></div>
+        <h2 class="fade-in-component" style="font-family: 'Cinzel Decorative', cursive;">Meet the Bride</h2>
+        <div class="switch-images-container" id="container2">
+            <div class="switch-images fade-in-component">
+                <img src="img/anna_host2.jpg" class="host-image top" />
+                <img src="img/anna_host.jpg" class="host-image bottom " />
+            </div>
+        </div>
+        <p class="fade-in-component betrothed" style="font-family: 'Dancing Script', cursive;">Anna Morikawa</p>
+    </section>
+
+    <div class="divider fade-in-component"><span></span><span>
+            <h3 class="divider-text">MESSAGE</h3>
+        </span><span></span></div>
+    <section id="intro" class="fade-in-component">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="ourMessage">
+                        <span class="fade-in-component">親愛なる皆様<br></span>
+                        <span class="fade-in-component">このたび私たちは　皆様にご挨拶<br></span>
+                        <span class="fade-in-component">ご披露をかねまして<br></span>
+                        <span class="fade-in-component">結婚式をすることに致しました<br></span>
+                        <span class="fade-in-component">この新たな出発の日を<br></span>
+                        <span class="fade-in-component">日々お世話になっております皆様と<br></span>
+                        <span class="fade-in-component">楽しく過ごさせて頂ければ幸いに存じます<br></span>
+                        <span class="fade-in-component">心ばかりの披露パーティーですが<br></span>
+                        <span class="fade-in-component">皆様とお会いできますことを楽しみにしております<br></span>
+                        <span class="fade-in-component">ご多用とは存じますが<br></span>
+                        <span class="fade-in-component">ご出席くださいますようご案内申し上げます<br></span>
+                        <br>
+                        <span class="fade-in-component">2024年２月吉日<br></span>
+                        <span class="fade-in-component">ルルカ　バルトシュ<br></span>
+                        <span class="fade-in-component">森川　杏那<br></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="divider fade-in-component"><span></span><span>
+            <h3 class="divider-text">PHOTOS</h3>
+        </span><span></span></div>
+    <section class="fade-in-component">
+        <div class="pic-slider">
+            <div><img src="img/mds1.JPG" class="slider-image" /></div>
+            <div><img src="img/mds2.JPG" class="slider-image" /></div>
+            <div><img src="img/mds3.JPG" class="slider-image" /></div>
+            <div><img src="img/mds4.JPG" class="slider-image" /></div>
+            <div><img src="img/mds5.JPG" class="slider-image" /></div>
+            <div><img src="img/mds6.JPG" class="slider-image" /></div>
+        </div>
+    </section>
+    <div class="divider fade-in-component"><span></span><span>
+            <h3 class="divider-text">VENUE</h3>
+        </span><span></span></div>
+    <section id="map" class="section-padding fade-in-component">
+        <div class="text-center">
+            <div class="wedding-place">
+
+                <h4 style="color: black;">AZABU GEIHINKAN</h4>
+                <h4 style="color: black;">麻布迎賓館</h4>
+            </div>
+            <br>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.522812570336!2d139.72768377578697!3d35.664126772592745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b784536895b%3A0x9de2f41f5f552684!2sAzabu%20Geihinkan!5e0!3m2!1sen!2sjp!4v1696243817769!5m2!1sen!2sjp"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <br>
+        <div class="container" style="color: black;">
+            <table class="table">
+                <tr>
+                    <th scope="row">住所</th>
+                    <td class="col">〒106-0032 東京都港区六本木7-12-29</td>
+                </tr>
+                <tr>
+                    <th scope="row">交通</th>
+                    <td class="col">地下鉄大江戸線六本木駅7番出口より徒歩3分<br />
+                        地下鉄日比谷線六本木駅4a出口より徒歩3分（六本木交差点すぐ）<br />
+                        地下鉄千代田線乃木坂駅3番出口より徒歩5分<br />
+                        駐車場　近隣利用（有料）</td>
+                </tr>
+                <tr>
+                    <th scope="row">TEL</th>
+                    <td class="col">03-3408-9222</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <div id="attendance-part">
+
+
+        <div class="divider fade-in-component"><span></span><span>
+                <h3 class="divider-text">ATTENDANCE</h3>
+            </span><span></span></div>
+
+        <section class="rsvp text-center fade-in-component" id="rsvp">
+
+            <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close"><span>&times;</span>
+                            </button>
+                            <div class="section-padding">
+                                <h3>ありがとうございます！</h3>
+                                <p class="simple-text">当日はよろしくお願いします！</p>
+                                <div id="add-to-cal"></div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <div class="container">
+                <h3>ご記入お願いします</h3>
+                <p class="simple-text">勝手ながら３月１９日までに<br>ご返事頂ければ幸いです</p>
+
+                <form id="rsvp-form" class="rsvp-form" action="" method="POST">
+                    <div id="people">
+
+                    </div>
+                    <input type="hidden" name="n">
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
+                                    placeholder="メールアドレス（任意）">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-envelope"></i><input type="text" name="comment" id="comment" class=""
+                                    placeholder="コメント（任意）">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="alert-wrapper"></div>
+                    </div>
+                    <button type="submit" class="btn-fill rsvp-btn" id="submitButton" style="font-size: x-large; font-weight: bold;">登録</button>
+
+                </form>
+            </div>
+        </section>
+    </div>
+    <section class="fade-in-component" style="text-align: center;">
+        <h3>お待ちしております</h3>
+        <img src="img/czekamy.jpg" class="last-image" />
+    </section>
+    <div id="personTemplate" style="display: none;" class="person">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-input-group">
+                    <i class="fa fa-user"></i><input name="name" class="" placeholder="お名前" required>
+                    <input name="going" value="" required style="border: 0; width: 0%; position: absolute; right: 0;"
+                        autocomplete="off">
+                    <div class="btn-group detailsButton" role="group" aria-label="Basic example">
+                        <button type="button" name="on_btn" onclick="toggleDetails(event, true)"
+                            class="btn btn-secondary"><span style="color: black;">参加</span></button>
+
+                        <button type="button" name="off_btn" onclick="toggleDetails(event, false)"
+                            class="btn btn-secondary"><span style="color: black;">不参加</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" name="participateDetails" style="max-height: 0px; display: none;">
+            <div class="col-md-12 col-sm-12">
+                <p class="simple-text" style="padding: 0;">食事制限</p>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <input name="allergy" value="" required style="border: 0; width: 0%; position: absolute;"
+                    autocomplete="off">
+                <div class="btn-group detailsButton" role="group" aria-label="Basic example" style="padding-bottom: 30px;">
+
+                    <button type="button" name="allergy_on_btn" onclick="toggleAllergy(event, true)"
+                        class="btn btn-secondary"><span style="color: black;">有</span></button>
+
+                    <button type="button" name="allergy_off_btn" onclick="toggleAllergy(event, false)"
+                        class="btn btn-secondary"><span style="color: black;">無</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="row" name="allergyDetails" style="max-height: 0px; display: none;">
+            <p class="simple-text" style="padding: 0;">食事制限があるこちらで登録お願いいたします</p>
+            <p class="simple-text">
+                <a href="https://www.tg-wn.com/guest/allergy-entry/AZ0000552193-$2y$10$FRBaDQDZe50MrTOjB5Toxu8nnLmO3AEwi2sJz8Eaw9dDdHnXUla"
+                    class="btn btn-large btn-primary" target="_blank" style="font-size: large;">
+                    食事制限登録
+                </a>
+            </p>
+        </div>
+    </div>
+    <script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
+    <script src="node_modules/waypoints/lib/jquery.waypoints.min.js" onerror="loadJsFromCDN('waypoints.js')"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="js/vendor/ouical.js"></script>
+    <script src="js/scripts.min.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlPw3GQYI3faa_9mRE6plWuM7xNEmrwH0&callback=initMap"></script>
+    <script>
+        // Function to get URL parameters by name
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return false;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        function addPerson(i, name) {
+            const template = document.getElementById('personTemplate');
+            const clone = template.cloneNode(true);
+            clone.id = "person" + i
+            clone.style.display = 'block';
+
+            j = 1
+            clone.querySelectorAll('label.btn').forEach(label => {
+                const input = label.querySelector('input[type="radio"]');
+                input.id = `options${i}_${j}`; // Update the 'name' attribute of the radio buttons
+                // label.setAttribute('for', `options${i}`);
+                j++;
+            });
+
+            // Insert the cloned section into the document
+            const detailsButton = clone.querySelector('.detailsButton');
+            // detailsButton.addEventListener('click', toggleParticipate);
+            nameInput = clone.querySelector('input[name="name"]')
+            nameInput.name = nameInput.name + i
+            if (name !== null && name.length > 0) {
+                nameInput.value = name;
+                // nameInput.disabled = true;
+            }
+
+            goingBool = clone.querySelector('input[name="going"]')
+            goingBool.name = goingBool.name + i
+            allergyBool = clone.querySelector('input[name="allergy"]')
+            allergyBool.name = allergyBool.name + i
+
+            document.getElementById("people").appendChild(clone);
+        }
+
+        function toggleDetails(event, on) {
+            const button = event.currentTarget;
+            const person = button.closest('.person'); // Find the parent element with class 'person'
+            const detailsInput = person.querySelector('[name="participateDetails"]');
+            let other_btn
+            if (on) {
+                other_btn = button.parentElement.querySelector('[name="off_btn"]');
+            }
+            else {
+                other_btn = button.parentElement.querySelector('[name="on_btn"]');
+            }
+
+            // update going bool 
+            const goingBool = person.querySelector('[name^="going"]');
+            goingBool.value = on.toString();
+
+            button.style["background-color"] = "#e8ca6f"
+            other_btn.style["background-color"] = "#fff"
+            const allergyBool = person.querySelector('[name^="allergy"]');
+            const allergyDetails = person.querySelector('[name="allergyDetails"]');
+            if (on) {
+                detailsInput.style.display = "block";
+                detailsInput.style.maxHeight = detailsInput.scrollHeight + 'px';
+                allergyBool.required = true;
+            } else {
+                detailsInput.style.maxHeight = '0';
+                allergyBool.value = "";
+                allergyBool.required = false;
+                allergyDetails.style.maxHeight = '0';
+            }
+            detailsInput.classList.add('transition-effect');
+        }
+
+        function toggleAllergy(event, on) {
+            const button = event.currentTarget;
+            const person = button.closest('.person'); // Find the parent element with class 'person'
+            const detailsInput = person.querySelector('[name="allergyDetails"]');
+            let other_btn
+            if (on) {
+                other_btn = button.parentElement.querySelector('[name="allergy_off_btn"]');
+            }
+            else {
+                other_btn = button.parentElement.querySelector('[name="allergy_on_btn"]');
+            }
+
+            // update going bool 
+            const allergyBool = person.querySelector('[name^="allergy"]');
+            allergyBool.value = on.toString();
+
+            button.style["background-color"] = "#e8ca6f"
+            other_btn.style["background-color"] = "#fff"
+            if (on) {
+                detailsInput.style.display = "block"
+                detailsInput.style.maxHeight = detailsInput.scrollHeight + 'px';
+            } else {
+                detailsInput.style.maxHeight = '0';
+            }
+            detailsInput.classList.add('transition-effect');
+        }
+
+        var numOfPpl = getParameterByName('n')
+        if (!numOfPpl | numOfPpl < 1) {
+            // Hide the Attendance part
+            $("#attendance-part").hide();
+        }
+        numOfPplInput = document.querySelector('input[name="n"]')
+        numOfPplInput.value = numOfPpl
+
+        for (var i = 1; i <= numOfPpl; i++) {
+            const personName = getParameterByName('name' + i);
+            addPerson(i, personName);
+        }
+    </script>
+    <script>
+        function makeTimer() {
+
+            var endTime = new Date("2024-04-21 15:15:00");
+            var endTime = (Date.parse(endTime)) / 1000;
+
+            var now = new Date();
+            var now = (Date.parse(now) / 1000);
+
+            var timeLeft = endTime - now;
+
+            var days = Math.floor(timeLeft / 86400);
+            var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+            var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
+            var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+            if (hours < "10") { hours = "0" + hours; }
+            if (minutes < "10") { minutes = "0" + minutes; }
+            if (seconds < "10") { seconds = "0" + seconds; }
+
+            $("#days").html(days + "<span>Days</span>");
+            $("#hours").html(hours + "<span>Hours</span>");
+            $("#minutes").html(minutes + "<span>Minutes</span>");
+            $("#seconds").html(seconds + "<span>Seconds</span>");
+
+        }
+
+        setInterval(function () { makeTimer(); }, 1000);
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.pic-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                centerMode: true,
+                adaptiveHeight: true,
+                mobileFirst: true,
+                //   centerPadding: '60px',
+                variableWidth: true,
+                initialSlide: 1,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: true,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+
+            });
+        });
+    </script>
+
+    <script>
+        const fadeOptions = {
+            threshold: 0.5,
+        };
+
+        const fadeObserver = new IntersectionObserver((entries, fadeObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, fadeOptions);
+
+        const fadeElements = document.querySelectorAll('.fade-in-component');
+
+        fadeElements.forEach((element) => {
+            fadeObserver.observe(element);
+        });
+
+        const imageSwitchOptions = {
+            threshold: 1, // Trigger when the entire image enters or exits the viewport
+        };
+
+        const imageSwitchObservers = document.querySelectorAll('.switch-images-container').forEach((container) => {
+            const imageSwitchObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    const topImage = container.querySelector('.host-image.top');
+                    const bottomImage = container.querySelector('.host-image.bottom');
+
+                    if (entry.isIntersecting) {
+                        // Image is fully in the viewport
+                        topImage.style.display = 'none';
+                        bottomImage.style.display = 'block';
+                    } else {
+                        // Image is fully out of the viewport
+                        topImage.style.display = 'block';
+                        bottomImage.style.display = 'none';
+                    }
+                });
+            }, imageSwitchOptions);
+
+            imageSwitchObserver.observe(container);
+        });
+    </script>
+
+    <script>
+        // Define the target elements
+        const titleElement = document.querySelector('.wedding-title');
+        const namesElement = document.querySelector('.couple-names');
+
+        // Create separate animation timelines using Anime.js
+        const titleAnimation = anime.timeline({
+            duration: 2000, // Increase the duration for slower animation (in milliseconds)
+            easing: 'easeInOutQuart', // Easing function for a more natural look
+        });
+
+        const namesAnimation = anime.timeline({
+            duration: 2000, // Increase the duration for slower animation (in milliseconds)
+            easing: 'easeInOutQuart', // Easing function for a more natural look
+        });
+
+        // Animation for the wedding title
+        titleAnimation
+            .add({
+                targets: titleElement,
+                opacity: [0, 1], // Fade in the entire text
+            })
+            .add({
+                targets: '.wedding-title .letter',
+                translateX: [40, 0], // Move each letter horizontally
+                opacity: [0, 1], // Fade in each letter
+                delay: (el, i) => 500 + 100 * i, // Increase the delay for slower animation
+            });
+
+        // Animation for the couple names
+        namesAnimation
+            .add({
+                targets: namesElement,
+                opacity: [0, 1], // Fade in the entire text
+                delay: 3000, // Introduce a 2-second delay before this animation starts
+            })
+            .add({
+                targets: '.couple-names .letter',
+                translateX: [40, 0], // Move each letter horizontally
+                opacity: [0, 1], // Fade in each letter
+                delay: (el, i) => 500 + 100 * i, // Increase the delay for slower animation
+            });
+    </script>
+    <script>
+        $('#rsvp-form').on('submit', function (e) {
+            console.log("Submitting the data")
+            // e.preventDefault();
+            var data = $(this).serialize();
+            console.log(data);
+            console.log(this);
+            $('#alert-wrapper').html(alert_markup('info', '<strong>送信中</strong>'));
+            $.post('https://script.google.com/macros/s/AKfycbw8grzwZmBnuX_Tqf7fvYxoItHX3z4suBiqGNeASxD9PAn-uOb_xd_bQOWcDpNwQLEZoA/exec', data)
+                .done(function (data) {
+                    console.log(data);
+                    if (data.result === "error") {
+                        $('#alert-wrapper').html(alert_markup('danger', data.message));
+                    } else {
+                        $('#alert-wrapper').html('');
+                        const submitButton = document.getElementById('submitButton');
+
+                        submitButton.disabled = true;
+                        submitButton.textContent = "登録済！"
+                        submitButton.style.backgroundColor = "gray"
+                    }
+                })
+                .fail(function (data) {
+                    console.log(data);
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>すみません！</strong> エラーが発生しました～ '));
+                });
+            return false;
+        });
+    </script>
+
+
+
+
+
+</body>
+
+</html>
