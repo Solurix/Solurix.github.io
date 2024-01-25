@@ -198,6 +198,11 @@
     <div class="time-img fade-in-component">
         <img src="img/time-schedule.jpg" />
     </div>
+    <br>
+    <div class="text-center" style="opacity: 0.8;">
+        <div id="add-to-cal" class="fade-in-component"></div>
+    </div>
+
 
     <div class="divider fade-in-component"><span></span><span>
             <h3 class="divider-text">BETROTHED</h3>
@@ -723,6 +728,38 @@
                 });
             return false;
         });
+    </script>
+    <script>
+            /********************** Add to Calendar **********************/
+    var myCalendar = createCalendar({
+        options: {
+            class: '',
+            // You can pass an ID. If you don't, one will be generated for you
+            id: ''
+        },
+        data: {
+            // Event title
+            title: "杏那とバルトシュの結婚式",
+
+            // Event start date
+            start: new Date('Apr 21, 2024 15:15'),
+
+            // Event duration (IN MINUTES)
+            // duration: 120,
+
+            // You can also choose to set an end time
+            // If an end time is set, this will take precedence over duration
+            end: new Date('Apr 21, 2024 20:00'),
+
+            // Event Address
+            address: '東京都港区六本木７丁目１２−２９ 麻布迎賓館',
+
+            // Event Description
+            description: "開場 15:15 \n挙式 15:45 \n披露宴 16:45"
+        }
+    });
+
+    $('#add-to-cal').html(myCalendar);
     </script>
 
 
