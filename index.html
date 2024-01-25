@@ -55,6 +55,11 @@
             object-fit: contain;
             /* Maintain aspect ratio while fitting within the container */
         }
+
+        .simple-text {
+            color: black;
+            font-size: 18px;
+        }
     </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -314,7 +319,7 @@
                             </button>
                             <div class="section-padding">
                                 <h3>ありがとうございます！</h3>
-                                <p>当日はよろしくお願いします！</p>
+                                <p class="simple-text">当日はよろしくお願いします！</p>
                                 <div id="add-to-cal"></div>
                             </div>
                         </div>
@@ -324,12 +329,13 @@
 
             <div class="container">
                 <h3>ご記入お願いします</h3>
-                <p>勝手ながら３月１９日までに<br>ご返事頂ければ幸いです</p>
+                <p class="simple-text">勝手ながら３月１９日までに<br>ご返事頂ければ幸いです</p>
 
                 <form id="rsvp-form" class="rsvp-form" action="" method="POST">
                     <div id="people">
 
                     </div>
+                    <input type="hidden" name="n">
 
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
@@ -348,8 +354,8 @@
                     <div class="row">
                         <div class="col-md-12" id="alert-wrapper"></div>
                     </div>
-                    <button type="submit" class="btn-fill rsvp-btn" id="submitButton">登録
-                    </button>
+                    <button type="submit" class="btn-fill rsvp-btn" id="submitButton" style="font-size: x-large; font-weight: bold;">登録</button>
+
                 </form>
             </div>
         </section>
@@ -367,36 +373,36 @@
                         autocomplete="off">
                     <div class="btn-group detailsButton" role="group" aria-label="Basic example">
                         <button type="button" name="on_btn" onclick="toggleDetails(event, true)"
-                            class="btn btn-secondary">参加</button>
+                            class="btn btn-secondary"><span style="color: black;">参加</span></button>
 
                         <button type="button" name="off_btn" onclick="toggleDetails(event, false)"
-                            class="btn btn-secondary">不参加</button>
+                            class="btn btn-secondary"><span style="color: black;">不参加</span></button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row" name="participateDetails" style="max-height: 0px; display: none;">
             <div class="col-md-12 col-sm-12">
-                <p>食事制限</p>
+                <p class="simple-text" style="padding: 0;">食事制限</p>
             </div>
             <div class="col-md-12 col-sm-12">
-                <input name="is_allergy" value="" required style="border: 0; width: 0%; position: absolute;"
+                <input name="allergy" value="" required style="border: 0; width: 0%; position: absolute;"
                     autocomplete="off">
-                <div class="btn-group detailsButton" role="group" aria-label="Basic example">
+                <div class="btn-group detailsButton" role="group" aria-label="Basic example" style="padding-bottom: 30px;">
 
                     <button type="button" name="allergy_on_btn" onclick="toggleAllergy(event, true)"
-                        class="btn btn-secondary">有</button>
+                        class="btn btn-secondary"><span style="color: black;">有</span></button>
 
                     <button type="button" name="allergy_off_btn" onclick="toggleAllergy(event, false)"
-                        class="btn btn-secondary">無</button>
+                        class="btn btn-secondary"><span style="color: black;">無</span></button>
                 </div>
             </div>
         </div>
         <div class="row" name="allergyDetails" style="max-height: 0px; display: none;">
-            <p>食事制限があるこちらで登録お願いいたします</p>
-            <p>
+            <p class="simple-text" style="padding: 0;">食事制限があるこちらで登録お願いいたします</p>
+            <p class="simple-text">
                 <a href="https://www.tg-wn.com/guest/allergy-entry/AZ0000552193-$2y$10$FRBaDQDZe50MrTOjB5Toxu8nnLmO3AEwi2sJz8Eaw9dDdHnXUla"
-                    class="btn btn-primary" target="_blank">
+                    class="btn btn-large btn-primary" target="_blank" style="font-size: large;">
                     食事制限登録
                 </a>
             </p>
@@ -441,11 +447,18 @@
             // Insert the cloned section into the document
             const detailsButton = clone.querySelector('.detailsButton');
             // detailsButton.addEventListener('click', toggleParticipate);
+            nameInput = clone.querySelector('input[name="name"]')
+            nameInput.name = nameInput.name + i
             if (name !== null && name.length > 0) {
-                input = clone.querySelector('input[name="name"]')
-                input.value = name;
-                // input.disabled = true;
+                nameInput.value = name;
+                // nameInput.disabled = true;
             }
+
+            goingBool = clone.querySelector('input[name="going"]')
+            goingBool.name = goingBool.name + i
+            allergyBool = clone.querySelector('input[name="allergy"]')
+            allergyBool.name = allergyBool.name + i
+
             document.getElementById("people").appendChild(clone);
         }
 
@@ -462,12 +475,12 @@
             }
 
             // update going bool 
-            const goingBool = person.querySelector('[name="going"]');
+            const goingBool = person.querySelector('[name^="going"]');
             goingBool.value = on.toString();
 
             button.style["background-color"] = "#e8ca6f"
             other_btn.style["background-color"] = "#fff"
-            const allergyBool = person.querySelector('[name="is_allergy"]');
+            const allergyBool = person.querySelector('[name^="allergy"]');
             const allergyDetails = person.querySelector('[name="allergyDetails"]');
             if (on) {
                 detailsInput.style.display = "block";
@@ -495,8 +508,8 @@
             }
 
             // update going bool 
-            const goingBool = person.querySelector('[name="is_allergy"]');
-            goingBool.value = on.toString();
+            const allergyBool = person.querySelector('[name^="allergy"]');
+            allergyBool.value = on.toString();
 
             button.style["background-color"] = "#e8ca6f"
             other_btn.style["background-color"] = "#fff"
@@ -514,6 +527,8 @@
             // Hide the Attendance part
             $("#attendance-part").hide();
         }
+        numOfPplInput = document.querySelector('input[name="n"]')
+        numOfPplInput.value = numOfPpl
 
         for (var i = 1; i <= numOfPpl; i++) {
             const personName = getParameterByName('name' + i);
