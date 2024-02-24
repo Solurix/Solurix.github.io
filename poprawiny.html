@@ -212,7 +212,7 @@
         <h1>1 Czerwca 2024</h1>
         <h2>15:00</h2>
     </section>
-    
+
 
     <br>
     <div class="text-center" style="opacity: 0.8;">
@@ -296,7 +296,7 @@
             <br>
 
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2440.2159198409427!2d16.863657476916586!3d52.29393535294179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470451c702bdc5f3%3A0x2ed3fbeaa2ccaecb!2sS%C3%B3l%20i%20pieprz!5e0!3m2!1sen!2sjp!4v1708750639637!5m2!1sen!2sjp" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2440.2159198409427!2d16.863657476916586!3d52.29393535294179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470451c702bdc5f3%3A0x2ed3fbeaa2ccaecb!2sS%C3%B3l%20i%20pieprz!5e0!3m2!1sen!2sjp!4v1708750639637!5m2!1sen!2sjp"
                 width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -363,7 +363,8 @@
                     <div class="row">
                         <div class="col-md-12" id="alert-wrapper"></div>
                     </div>
-                    <button type="submit" class="btn-fill rsvp-btn" id="submitButton" style="font-size: x-large; font-weight: bold;">Wyślij</button>
+                    <button type="submit" class="btn-fill rsvp-btn" id="submitButton"
+                        style="font-size: x-large; font-weight: bold;">Wyślij</button>
 
                 </form>
             </div>
@@ -391,9 +392,9 @@
             </div>
         </div>
         <div class="row" name="participateDetails" style="max-height: 0px; display: none;">
-            <div class="col-md-12 col-sm-12">
+            <!-- <div class="col-md-12 col-sm-12">
                 <p class="simple-text" style="padding: 0;">Restrykcje żywieniowe</p>
-            </div>
+            </div> -->
             <div class="col-md-12 col-sm-12">
                 <!-- <input name="allergy" value="" required style="border: 0; width: 0%; position: absolute;"
                     autocomplete="off">
@@ -404,17 +405,19 @@
 
                     <button type="button" name="_allergy_off_btn" onclick="toggleAllergy(event, false)"
                         class="btn btn-secondary"><span style="color: black;">無</span></button> -->
-                    <p class="simple-text" style="padding: 0;">Opcjonalne informacje co do restrykcji żywieniowych (alergie, dieta wegańska itp.)</p>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-input-group" style="margin-left: 10%; margin-bottom: 50px;">
-                            <i class="fa fa-cutlery"></i><input type="allergy" name="allergy" class=""
-                                placeholder="Alergia na wode itp.">
-                        </div>
+                <p class="simple-text" style="padding: 0;">Opcjonalne informacje co do restrykcji żywieniowych (alergie,
+                    dieta wegańska itp.)</p>
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-input-group" style="margin-left: 10%;">
+                        <i class="fa fa-cutlery"></i><input type="allergy" name="allergy" class=""
+                            placeholder="Alergia na wode itp.">
                     </div>
                 </div>
             </div>
+            <br>
         </div>
-        <!-- <div class="row" name="foodDetails" style="max-height: 0px; display: none;">
+    </div>
+    <!-- <div class="row" name="foodDetails" style="max-height: 0px; display: none;">
         </div> -->
     </div>
     <script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
@@ -735,36 +738,36 @@
         });
     </script>
     <script>
-            /********************** Add to Calendar **********************/
-    var myCalendar = createCalendar({
-        options: {
-            class: '',
-            // You can pass an ID. If you don't, one will be generated for you
-            id: ''
-        },
-        data: {
-            // Event title
-            title: "Poprawiny wesela Anny i Bartosza",
+        /********************** Add to Calendar **********************/
+        var myCalendar = createCalendar({
+            options: {
+                class: '',
+                // You can pass an ID. If you don't, one will be generated for you
+                id: ''
+            },
+            data: {
+                // Event title
+                title: "Poprawiny wesela Anny i Bartosza",
 
-            // Event start date
-            start: new Date('Jun 1, 2024 15:00'),
+                // Event start date
+                start: new Date('Jun 1, 2024 15:00'),
 
-            // Event duration (IN MINUTES)
-            // duration: 120,
+                // Event duration (IN MINUTES)
+                // duration: 120,
 
-            // You can also choose to set an end time
-            // If an end time is set, this will take precedence over duration
-            end: new Date('Jun 1, 2024 23:00'),
+                // You can also choose to set an end time
+                // If an end time is set, this will take precedence over duration
+                end: new Date('Jun 1, 2024 23:00'),
 
-            // Event Address
-            address: 'Podleśna 1b, 62-040 Puszczykowo, Poland',
+                // Event Address
+                address: 'Podleśna 1b, 62-040 Puszczykowo, Poland',
 
-            // Event Description
-            description: "Start o godzinie 15:00 w Polsce (CET). \nJeżeli wydarzenie zostało zrobione w innej strefie czasowej, ustawiona godzina może być niepoprawna."
-        }
-    });
+                // Event Description
+                description: "Start o godzinie 15:00 w Polsce (CET). \nJeżeli wydarzenie zostało zrobione w innej strefie czasowej, ustawiona godzina może być niepoprawna."
+            }
+        });
 
-    $('#add-to-cal').html(myCalendar);
+        $('#add-to-cal').html(myCalendar);
     </script>
 
 
