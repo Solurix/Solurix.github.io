@@ -395,27 +395,27 @@
                 <p class="simple-text" style="padding: 0;">Restrykcje żywieniowe</p>
             </div>
             <div class="col-md-12 col-sm-12">
-                <input name="allergy" value="" required style="border: 0; width: 0%; position: absolute;"
+                <!-- <input name="allergy" value="" required style="border: 0; width: 0%; position: absolute;"
                     autocomplete="off">
                 <div class="btn-group detailsButton" role="group" aria-label="Basic example" style="padding-bottom: 30px;">
 
-                    <button type="button" name="allergy_on_btn" onclick="toggleAllergy(event, true)"
+                    <button type="button" name="_allergy_on_btn" onclick="toggleAllergy(event, true)"
                         class="btn btn-secondary"><span style="color: black;">有</span></button>
 
-                    <button type="button" name="allergy_off_btn" onclick="toggleAllergy(event, false)"
-                        class="btn btn-secondary"><span style="color: black;">無</span></button>
+                    <button type="button" name="_allergy_off_btn" onclick="toggleAllergy(event, false)"
+                        class="btn btn-secondary"><span style="color: black;">無</span></button> -->
+                    <p class="simple-text" style="padding: 0;">Opcjonalne informacje co do restrykcji żywieniowych (alergie, dieta wegańska itp.)</p>
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-input-group" style="margin-left: 10%; margin-bottom: 50px;">
+                            <i class="fa fa-cutlery"></i><input type="allergy" name="allergy" class=""
+                                placeholder="Alergia na wode itp.">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row" name="allergyDetails" style="max-height: 0px; display: none;">
-            <p class="simple-text" style="padding: 0;">食事制限がある方はこちらから登録ください</p>
-            <p class="simple-text">
-                <a href="https://www.tg-wn.com/guest/allergy-entry/AZ0000552193-$2y$10$FRBaDQDZe50MrTOjB5Toxu8nnLmO3AEwi2sJz8Eaw9dDdHnXUla"
-                    class="btn btn-large btn-primary" target="_blank" style="font-size: large;">
-                    食事制限登録
-                </a>
-            </p>
-        </div>
+        <!-- <div class="row" name="foodDetails" style="max-height: 0px; display: none;">
+        </div> -->
     </div>
     <script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
     <script src="node_modules/waypoints/lib/jquery.waypoints.min.js" onerror="loadJsFromCDN('waypoints.js')"></script>
@@ -491,7 +491,7 @@
             button.style["background-color"] = "#e8ca6f"
             other_btn.style["background-color"] = "#fff"
             const allergyBool = person.querySelector('[name^="allergy"]');
-            const allergyDetails = person.querySelector('[name="allergyDetails"]');
+            const foodDetails = person.querySelector('[name="foodDetails"]');
             if (on) {
                 detailsInput.style.display = "block";
                 detailsInput.style.maxHeight = detailsInput.scrollHeight + 'px';
@@ -500,7 +500,7 @@
                 detailsInput.style.maxHeight = '0';
                 allergyBool.value = "";
                 allergyBool.required = false;
-                allergyDetails.style.maxHeight = '0';
+                foodDetails.style.maxHeight = '0';
             }
             detailsInput.classList.add('transition-effect');
         }
@@ -508,13 +508,13 @@
         function toggleAllergy(event, on) {
             const button = event.currentTarget;
             const person = button.closest('.person'); // Find the parent element with class 'person'
-            const detailsInput = person.querySelector('[name="allergyDetails"]');
+            const detailsInput = person.querySelector('[name="foodDetails"]');
             let other_btn
             if (on) {
-                other_btn = button.parentElement.querySelector('[name="allergy_off_btn"]');
+                other_btn = button.parentElement.querySelector('[name="_allergy_off_btn"]');
             }
             else {
-                other_btn = button.parentElement.querySelector('[name="allergy_on_btn"]');
+                other_btn = button.parentElement.querySelector('[name="_allergy_on_btn"]');
             }
 
             // update going bool 
@@ -712,7 +712,7 @@
             var data = $(this).serialize();
             console.log(data);
             console.log(this);
-            $('#alert-wrapper').html(alert_markup('info', '<strong>送信中</strong>'));
+            $('#alert-wrapper').html(alert_markup('info', '<strong>Wysyłanie</strong>'));
             $.post('https://script.google.com/macros/s/AKfycbw8grzwZmBnuX_Tqf7fvYxoItHX3z4suBiqGNeASxD9PAn-uOb_xd_bQOWcDpNwQLEZoA/exec', data)
                 .done(function (data) {
                     console.log(data);
@@ -723,13 +723,13 @@
                         const submitButton = document.getElementById('submitButton');
 
                         submitButton.disabled = true;
-                        submitButton.textContent = "登録済！"
+                        submitButton.textContent = "Wysłano!"
                         submitButton.style.backgroundColor = "gray"
                     }
                 })
                 .fail(function (data) {
                     console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>すみません！</strong> エラーが発生しました～ '));
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Przepraszamy!</strong> Wystąpił błąd! Odśwież stronę i spróbuj ponownie.'));
                 });
             return false;
         });
