@@ -500,14 +500,17 @@
             button.style["background-color"] = "#e8ca6f"
             other_btn.style["background-color"] = "#fff"
             const allergyBool = person.querySelector('[name^="allergy"]');
+            const nameInput= person.querySelector('[name^="name"]');
             const foodDetails = person.querySelector('[name="foodDetails"]');
             if (on) {
                 detailsInput.style.display = "block";
                 detailsInput.style.maxHeight = detailsInput.scrollHeight + 'px';
+                nameInput.required = true;
                 // allergyBool.required = true;
             } else {
                 detailsInput.style.maxHeight = '0';
                 allergyBool.value = "";
+                nameInput.required = false;
                 // allergyBool.required = false;
                 foodDetails.style.maxHeight = '0';
             }
